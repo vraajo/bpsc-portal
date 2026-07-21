@@ -122,7 +122,7 @@
 
         if (!profile.examCategory) {
 
-            alert("Please select Exam Category.");
+            showToast("Please select Exam Category", "warning");
 
             return false;
 
@@ -130,7 +130,7 @@
 
         if (!profile.examName) {
 
-            alert("Please enter Exam Name.");
+            showToast("Please enter Exam Name", "warning");
 
             return false;
 
@@ -138,7 +138,7 @@
 
         if (!profile.examDate) {
 
-            alert("Please select Exam Date.");
+            showToast("Please select Exam Date", "warning");
 
             return false;
 
@@ -170,7 +170,7 @@
 
         );
 
-        alert("Study Profile Saved Successfully.");
+        showToast("Study Profile Saved Successfully", "success");
 
     }
 
