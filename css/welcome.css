@@ -205,3 +205,37 @@ transform:translateY(0);
 }
 
 }
+
+.screen{
+
+opacity:0;
+
+transition:opacity .45s ease;
+
+pointer-events:none;
+
+}
+
+.screen.active{
+
+display:flex;
+
+opacity:1;
+
+pointer-events:auto;
+
+}
+
+#app{
+
+opacity:0;
+
+transition:opacity .45s ease;
+
+}
+
+#app.show{
+
+opacity:1;
+
+}
