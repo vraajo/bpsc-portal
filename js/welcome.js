@@ -18,23 +18,38 @@ let authChecked = false;
 function showApp() {
 
     splashScreen.classList.remove("active");
+
     welcomeScreen.classList.remove("active");
 
-    app.style.display = "block";
+    if (typeof showMainApp === "function") {
+
+        showMainApp();
+
+    } else {
+
+        app.style.display = "block";
+
+    }
 
 }
 
 /* ==========================
    Show Landing Page
 ========================== */
-
 function showLanding() {
+
+    if (typeof hideMainApp === "function") {
+
+        hideMainApp();
+
+    }
 
     splashScreen.classList.remove("active");
 
     welcomeScreen.classList.add("active");
 
 }
+
 
 /* ==========================
    Guest Mode
