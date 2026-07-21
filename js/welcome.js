@@ -9,10 +9,63 @@ const app = document.getElementById("app");
 const guestBtn = document.getElementById("guestStartBtn");
 const googleBtn = document.getElementById("googleStartBtn");
 
-let authChecked = false;
+let authResolved = false;
+let splashFinished = false;
 
 /* ==========================
-   Show Main Website
+   Splash Finished
+========================== */
+
+setTimeout(() => {
+
+    splashFinished = true;
+
+    decideNextScreen();
+
+}, 2500);
+
+/* ==========================
+   Decide Screen
+========================== */
+
+function decideNextScreen() {
+
+    if (!splashFinished || !authResolved) return;
+
+    if (auth.currentUser) {
+
+        showApp();
+
+    } else if (localStorage.getItem("guestMode") === "true") {
+
+        showApp();
+
+    } else {
+
+        showLanding();
+
+    }
+
+}
+
+/* ==========================
+   Show Landing
+========================== */
+
+function showLanding() {
+
+    splashScreen.classList.remove("active");
+
+    welcomeScreen.classList.add("active");
+
+    if (typeof hideMainApp === "function") {
+        hideMainApp();
+    }
+
+}
+
+/* ==========================
+   Show App
 ========================== */
 
 function showApp() {
@@ -34,25 +87,7 @@ function showApp() {
 }
 
 /* ==========================
-   Show Landing Page
-========================== */
-function showLanding() {
-
-    if (typeof hideMainApp === "function") {
-
-        hideMainApp();
-
-    }
-
-    splashScreen.classList.remove("active");
-
-    welcomeScreen.classList.add("active");
-
-}
-
-
-/* ==========================
-   Guest Mode
+   Guest
 ========================== */
 
 function enterGuestMode() {
@@ -64,12 +99,18 @@ function enterGuestMode() {
 }
 
 /* ==========================
-   Google Login
+   Buttons
 ========================== */
+
+if (guestBtn) {
+
+    guestBtn.addEventListener("click", enterGuestMode);
+
+}
 
 if (googleBtn) {
 
-    googleBtn.addEventListener("click", function () {
+    googleBtn.addEventListener("click", () => {
 
         if (typeof login === "function") {
 
@@ -82,67 +123,23 @@ if (googleBtn) {
 }
 
 /* ==========================
-   Guest Login
-========================== */
-
-if (guestBtn) {
-
-    guestBtn.addEventListener("click", enterGuestMode);
-
-}
-
-/* ==========================
-   Startup
-========================== */
-
-window.addEventListener("load", function () {
-
-    setTimeout(function () {
-
-        if (!authChecked) {
-
-            if (localStorage.getItem("guestMode") === "true") {
-
-                showApp();
-
-            } else {
-
-                showLanding();
-
-            }
-
-        }
-
-    }, 2500);
-
-});
-
-/* ==========================
    Called by auth.js
 ========================== */
 
 function welcomeAuthenticated() {
 
-    authChecked = true;
+    authResolved = true;
 
     localStorage.removeItem("guestMode");
 
-    showApp();
+    decideNextScreen();
 
 }
 
 function welcomeGuest() {
 
-    authChecked = true;
+    authResolved = true;
 
-    if (localStorage.getItem("guestMode") === "true") {
-
-        showApp();
-
-    } else {
-
-        showLanding();
-
-    }
+    decideNextScreen();
 
 }
