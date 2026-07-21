@@ -12,6 +12,12 @@ function showMainApp() {
 
     if (appContainer) {
         appContainer.style.display = "block";
+
+requestAnimationFrame(() => {
+
+    appContainer.classList.add("show");
+
+});
     }
 
 }
@@ -19,7 +25,13 @@ function showMainApp() {
 function hideMainApp() {
 
     if (appContainer) {
-        appContainer.style.display = "none";
+        appContainer.classList.remove("show");
+
+setTimeout(() => {
+
+    appContainer.style.display = "none";
+
+},300);
     }
 
 }
