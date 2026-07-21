@@ -1,19 +1,13 @@
-// Firebase Config
+// Firebase Configuration
 
 const firebaseConfig = {
-
-apiKey: "AIzaSyCJ5o2ThN05UrTE3Uw-BM6ea03fH7OnCaE",
-
-authDomain: "bpsc-portal-a9b2f.firebaseapp.com",
-
-projectId: "bpsc-portal-a9b2f",
-
-storageBucket: "bpsc-portal-a9b2f.firebasestorage.app",
-
-messagingSenderId: "480197369468",
-
-appId: "1:480197369468:web:f91a7200ccbed5ec2a33f9"
-
+  apiKey: "AIzaSyCJ5o2ThN05UrTE3Uw-BM6ea03fH7OnCaE",
+  authDomain: "bpsc-portal-a9b2f.firebaseapp.com",
+  projectId: "bpsc-portal-a9b2f",
+  storageBucket: "bpsc-portal-a9b2f.firebasestorage.app",
+  messagingSenderId: "480197369468",
+  appId: "1:480197369468:web:f91a7200ccbed5ec2a33f9",
+  measurementId: "G-217VW2E9VZ"
 };
 
 // Initialize Firebase
