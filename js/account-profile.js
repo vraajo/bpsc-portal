@@ -95,6 +95,10 @@ function initProfileButtons() {
 // ===============================
 
 function setGuestMode() {
+    
+    const guestCard = document.getElementById("guestCard");
+
+        if (!guestCard) return;
 
     document.getElementById("guestCard").style.display = "block";
     document.getElementById("userCard").style.display = "none";
@@ -118,6 +122,10 @@ function setGuestMode() {
 
 
 function setLoggedInUser(user) {
+
+    const guestCard = document.getElementById("guestCard");
+
+        if (!guestCard) return;
 
     document.getElementById("guestCard").style.display = "none";
     document.getElementById("userCard").style.display = "block";
