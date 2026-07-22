@@ -90,6 +90,12 @@ auth.onAuthStateChanged((user) => {
 
     updateUI(user);
 
+     if (typeof CloudSync !== "undefined") {
+
+    CloudSync.restoreAll();
+
+}
+
     // Already logged in
     if (typeof welcomeAuthenticated === "function") {
       welcomeAuthenticated();
