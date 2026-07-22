@@ -82,7 +82,7 @@ function logout() {
    Firebase Session Listener
 ========================== */
 
-auth.onAuthStateChanged((user) => {
+auth.onAuthStateChanged(async (user) => {
 
   if (user) {
 
@@ -90,15 +90,18 @@ auth.onAuthStateChanged((user) => {
 
     updateUI(user);
 
-     if (typeof CloudSync !== "undefined") {
+    // Restore all registered modules
+    if (typeof CloudSync !== "undefined") {
 
-    CloudSync.restoreAll();
+        await CloudSync.restoreAll();
 
-}
+    }
 
     // Already logged in
     if (typeof welcomeAuthenticated === "function") {
+
       welcomeAuthenticated();
+
     }
 
   } else {
@@ -107,13 +110,14 @@ auth.onAuthStateChanged((user) => {
 
     // Not logged in
     if (typeof welcomeGuest === "function") {
+
       welcomeGuest();
+
     }
 
   }
 
 });
-
 /* ==========================
    Logged In UI
 ========================== */
