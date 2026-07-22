@@ -55,6 +55,15 @@ document.addEventListener("DOMContentLoaded", () => {
         initProfileButtons();
 
     }
+// Cloud Sync Function is here 
+       if (
+    pageId === "cloudSyncPage" &&
+    typeof initCloudSync === "function"
+) {
+    initCloudSync();
+}
+       // upper is the cloud sync function
+
        
         pages.forEach((page) => {
             page.classList.add("hidden");
