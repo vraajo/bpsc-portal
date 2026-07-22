@@ -102,7 +102,7 @@ function setGuestMode() {
         if (!guestCard) return;
 
     document.getElementById("guestCard").style.display = "block";
-    document.getElementById("userCard").style.display = "none";
+    document.getElementById("profileUserCard").style.display = "none";
 
     document.getElementById("profilePhoto").src =
         "https://vraajo.github.io/bpsc-portal/images/default-avatar.png";
@@ -129,7 +129,7 @@ function setLoggedInUser(user) {
         if (!guestCard) return;
 
     document.getElementById("guestCard").style.display = "none";
-    document.getElementById("userCard").style.display = "block";
+    document.getElementById("profileUserCard").style.display = "block";
 
     document.getElementById("profilePhoto").src =
         user.photoURL || "https://vraajo.github.io/bpsc-portal/images/default-avatar.png";
