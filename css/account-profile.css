@@ -1,0 +1,417 @@
+/* ===============================
+   PROFILE PAGE
+================================== */
+
+#profilePage{
+padding:20px;
+max-width:700px;
+margin:auto;
+}
+
+.profile-header{
+text-align:center;
+margin-bottom:20px;
+}
+
+.profile-header h2{
+font-size:28px;
+font-weight:700;
+margin-bottom:6px;
+}
+
+.profile-header p{
+opacity:.75;
+font-size:14px;
+}
+
+/* ===============================
+   HERO CARD
+================================== */
+
+.account-card{
+
+position:relative;
+
+overflow:hidden;
+
+padding:28px;
+
+border-radius:28px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(20px);
+
+-webkit-backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:
+
+0 15px 45px rgba(0,0,0,.25);
+
+margin-bottom:24px;
+
+text-align:center;
+
+}
+
+.account-card::before{
+
+content:"";
+
+position:absolute;
+
+width:240px;
+
+height:240px;
+
+background:var(--accent-color);
+
+opacity:.12;
+
+border-radius:50%;
+
+top:-120px;
+
+right:-100px;
+
+filter:blur(60px);
+
+pointer-events:none;
+
+}
+
+/* ===============================
+   AVATAR
+================================== */
+
+.profile-avatar-wrap{
+
+display:flex;
+
+justify-content:center;
+
+margin-bottom:18px;
+
+}
+
+.profile-avatar{
+
+width:110px;
+
+height:110px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:4px solid rgba(255,255,255,.15);
+
+box-shadow:
+
+0 10px 30px rgba(0,0,0,.35);
+
+}
+
+#profileName{
+
+font-size:24px;
+
+font-weight:700;
+
+margin-top:12px;
+
+}
+
+#profileMail{
+
+margin-top:6px;
+
+opacity:.8;
+
+font-size:15px;
+
+word-break:break-word;
+
+}
+
+.profile-uid{
+
+margin-top:10px;
+
+font-size:12px;
+
+opacity:.6;
+
+}
+
+/* ===============================
+   STATUS
+================================== */
+
+.status-badge{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:8px;
+
+margin-top:18px;
+
+padding:8px 18px;
+
+border-radius:999px;
+
+background:rgba(255,255,255,.08);
+
+}
+
+.status-dot{
+
+width:10px;
+
+height:10px;
+
+border-radius:50%;
+
+background:#00d26a;
+
+animation:pulse 1.5s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+50%{
+
+transform:scale(1.5);
+
+opacity:.45;
+
+}
+
+100%{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+/* ===============================
+   GUEST CARD
+================================== */
+
+.guest-card{
+
+margin-top:24px;
+
+padding:22px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.04);
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.guest-card h4{
+
+margin-bottom:10px;
+
+font-size:20px;
+
+}
+
+.guest-card p{
+
+line-height:1.6;
+
+opacity:.8;
+
+margin-bottom:20px;
+
+}
+
+/* ===============================
+   BUTTONS
+================================== */
+
+.primary-btn,
+
+.danger-btn{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:16px;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+.primary-btn{
+
+background:var(--accent-color);
+
+color:#fff;
+
+}
+
+.primary-btn:hover{
+
+transform:translateY(-2px);
+
+}
+
+.danger-btn{
+
+background:#e53935;
+
+color:#fff;
+
+}
+
+.danger-btn:hover{
+
+transform:translateY(-2px);
+
+}
+
+/* ===============================
+   SETTINGS
+================================== */
+
+.settings-card{
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(20px);
+
+border-radius:22px;
+
+overflow:hidden;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.settings-item{
+
+width:100%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px 20px;
+
+background:none;
+
+border:none;
+
+color:inherit;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+.settings-item:hover{
+
+background:rgba(255,255,255,.06);
+
+}
+
+.settings-item+.settings-item{
+
+border-top:1px solid rgba(255,255,255,.05);
+
+}
+
+/* ===============================
+   FOOTER
+================================== */
+
+.profile-footer{
+
+text-align:center;
+
+margin:30px 0;
+
+font-size:13px;
+
+opacity:.65;
+
+}
+
+.profile-footer p{
+
+margin:6px 0;
+
+}
+
+/* ===============================
+   MOBILE
+================================== */
+
+@media(max-width:600px){
+
+.account-card{
+
+padding:22px;
+
+border-radius:22px;
+
+}
+
+.profile-avatar{
+
+width:90px;
+
+height:90px;
+
+}
+
+#profileName{
+
+font-size:20px;
+
+}
+
+.settings-item{
+
+font-size:15px;
+
+padding:16px;
+
+}
+
+}
