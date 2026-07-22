@@ -73,24 +73,24 @@ function initProfileNavigation() {
 function initProfileButtons() {
 
     const loginBtn = document.getElementById("loginBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
 
     console.log("Login Button:", loginBtn);
-    console.log("Login Function:", typeof login);
+    console.log("Logout Button:", logoutBtn);
 
     if (loginBtn) {
-
         loginBtn.onclick = function () {
-
-            console.log("Button clicked");
-
             login();
-
         };
+    }
 
+    if (logoutBtn) {
+        logoutBtn.onclick = function () {
+            logout();
+        };
     }
 
 }
-
 // ===============================
 // PROFILE HELPERS
 // ===============================
