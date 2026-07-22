@@ -692,6 +692,10 @@ if (typeof CloudSync !== "undefined") {
 
             saveLocalProfile(profile);
 
+            applyTheme();
+
+            applyAccentColor();
+
         }
 
     );
