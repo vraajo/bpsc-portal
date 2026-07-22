@@ -199,3 +199,7 @@ function saveUser(user) {
     });
 
 }
+
+
+window.login = login;
+window.logout = logout;
