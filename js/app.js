@@ -57,6 +57,14 @@ document.addEventListener("DOMContentLoaded", () => {
             currentPage.classList.remove("hidden");
         }
 
+       // Re-bind Profile buttons every time Profile page opens
+
+         if (pageId === "profilePage" && typeof initProfileButtons === "function") {
+
+          initProfileButtons();
+
+         }
+
         navButtons.forEach((btn) => {
             btn.classList.remove("active");
         });
