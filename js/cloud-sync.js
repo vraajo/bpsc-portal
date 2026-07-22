@@ -251,13 +251,13 @@ CloudSync.restoreAll = async function () {
 
 }
 
-   /*     showToast( "Cloud Restore Complete", "success"  );
+      showToast( "Cloud Restore Complete", "success"  );
 
    } catch (e) {
 
        console.error(e);
 
-       showToast(   "Restore Failed",    "error"  ); */
+       showToast(   "Restore Failed",    "error"  );
 
    } 
 
