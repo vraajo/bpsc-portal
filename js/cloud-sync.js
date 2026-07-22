@@ -99,8 +99,7 @@ function loadAutoSync() {
 
     if (value !== null) {
 
-        autoSyncToggle.checked =
-            value === "true";
+        autoSyncToggle.checked = Boolean(value);
 
     }
 
