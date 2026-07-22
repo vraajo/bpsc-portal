@@ -129,13 +129,7 @@ function updateUI(user) {
   document.getElementById("userPhoto").src = photo;
   document.getElementById("profilePhoto").src = photo;
 
-  if (loginBtn) {
-    loginBtn.style.display = "none";
-  }
-
-  if (logoutBtn) {
-    logoutBtn.style.display = "inline-block";
-  }
+  
 
   // Update Account Profile page
   if (typeof setLoggedInUser === "function") {
@@ -161,13 +155,7 @@ function guestUI() {
   document.getElementById("userPhoto").src = DEFAULT_AVATAR;
   document.getElementById("profilePhoto").src = DEFAULT_AVATAR;
 
-  if (loginBtn) {
-    loginBtn.style.display = "none";
-  }
-
-  if (logoutBtn) {
-    logoutBtn.style.display = "none";
-  }
+  
 
   // Update Account Profile page
   if (typeof setGuestMode === "function") {
