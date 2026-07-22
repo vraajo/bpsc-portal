@@ -113,6 +113,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Default page after entering the app
     showPage("homePage");
 
+   // Initialize Planner
+   PlannerEngine.init();
+
     // Keep app hidden until Welcome Module allows it
     hideMainApp();
 
