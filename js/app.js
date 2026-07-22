@@ -47,6 +47,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showPage(pageId) {
 
+
+      // Existing code to hide/show pages
+
+    if (pageId === "profilePage") {
+
+        initProfileButtons();
+
+    }
+       
         pages.forEach((page) => {
             page.classList.add("hidden");
         });
