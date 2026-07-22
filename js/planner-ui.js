@@ -29,39 +29,37 @@ const PlannerUI = {
 
     }
 
-    document
-        .querySelectorAll(".addTopicBtn")
-        .forEach(button => {
+    const topicButtons =
+        document.querySelectorAll(".addTopicBtn");
 
-            button.addEventListener("click", () => {
+    topicButtons.forEach(button => {
 
-                const topic = prompt(
-                    "Enter Topic Name"
-                );
+        button.addEventListener("click", () => {
 
-                if (!topic) return;
+            const topic = prompt(
+                "Enter Topic Name"
+            );
 
-                PlannerEngine.addTopic(
+            if (!topic) return;
 
-                    button.dataset.id,
+            PlannerEngine.addTopic(
 
-                    topic
+                button.dataset.id,
 
-                );
+                topic
 
-                this.render();
+            );
 
-                showToast(
+            this.render();
 
-                    "Topic Added",
-
-                    "success"
-
-                );
-
-            });
+            showToast(
+                "Topic Added",
+                "success"
+            );
 
         });
+
+    });
 
 },
 
