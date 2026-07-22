@@ -49,7 +49,7 @@ function login() {
 
       console.error(error);
 
-      alert(error.message);
+      showToast("Google sign-in failed. Please try again.", "error");
 
     });
 
@@ -82,7 +82,7 @@ function logout() {
 
       console.error(error);
 
-      alert(error.message);
+      showToast("Unable to log out. Please try again.", "error");
 
     });
 
