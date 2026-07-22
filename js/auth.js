@@ -100,6 +100,10 @@ auth.onAuthStateChanged((user) => {
 
     updateUI(user);
 
+document.getElementById("guestCard").style.display = "none";
+document.getElementById("userCard").style.display = "block";
+document.getElementById("syncStatus").textContent = "Synced with Google";
+     
     // Already logged in
     if (typeof welcomeAuthenticated === "function") {
       welcomeAuthenticated();
@@ -109,6 +113,10 @@ auth.onAuthStateChanged((user) => {
 
     guestUI();
 
+document.getElementById("guestCard").style.display = "block";
+document.getElementById("userCard").style.display = "none";
+document.getElementById("syncStatus").textContent = "Guest Mode";
+     
     // Not logged in
     if (typeof welcomeGuest === "function") {
       welcomeGuest();
@@ -139,17 +147,13 @@ function updateUI(user) {
   document.getElementById("userPhoto").src = photo;
   document.getElementById("profilePhoto").src = photo;
 
+  // Hide old header login button
   if (loginBtn) {
     loginBtn.style.display = "none";
   }
 
   if (logoutBtn) {
     logoutBtn.style.display = "inline-block";
-  }
-
-  // Update Account Profile page
-  if (typeof setLoggedInUser === "function") {
-    setLoggedInUser(user);
   }
 
 }
@@ -171,17 +175,13 @@ function guestUI() {
   document.getElementById("userPhoto").src = DEFAULT_AVATAR;
   document.getElementById("profilePhoto").src = DEFAULT_AVATAR;
 
+  // Keep old header login hidden
   if (loginBtn) {
     loginBtn.style.display = "none";
   }
 
   if (logoutBtn) {
     logoutBtn.style.display = "none";
-  }
-
-  // Update Account Profile page
-  if (typeof setGuestMode === "function") {
-    setGuestMode();
   }
 
 }
