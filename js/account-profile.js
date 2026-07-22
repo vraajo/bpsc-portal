@@ -129,7 +129,7 @@ function setLoggedInUser(user) {
         if (!guestCard) return;
 
     document.getElementById("guestCard").style.display = "none";
-    document.getElementById("profileUserCard").style.display = "block";
+    document.getElementById("profileUserCard").style.display = "";
 
     document.getElementById("profilePhoto").src =
         user.photoURL || "https://vraajo.github.io/bpsc-portal/images/default-avatar.png";
