@@ -1,0 +1,110 @@
+/* ===========================
+   CLOUD SYNC PAGE
+=========================== */
+
+.sync-card{
+    background:#1f2638;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:22px;
+    margin:20px 0;
+}
+
+.sync-header{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.sync-icon{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#2b3448;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+}
+
+.sync-title h3{
+    margin:0;
+    color:#fff;
+    font-size:20px;
+}
+
+.sync-title p{
+    margin:4px 0 0;
+    color:#9aa5b5;
+    font-size:14px;
+}
+
+.sync-info{
+    margin-top:24px;
+}
+
+.sync-row{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.sync-row:last-child{
+    border-bottom:none;
+}
+
+.sync-label{
+    color:#9aa5b5;
+}
+
+.sync-value{
+    color:#fff;
+    font-weight:600;
+}
+
+.sync-buttons{
+    display:grid;
+    gap:14px;
+    margin-top:24px;
+}
+
+.sync-btn{
+    border:none;
+    border-radius:14px;
+    padding:15px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.sync-now{
+    background:#2563eb;
+    color:#fff;
+}
+
+.restore-btn{
+    background:#2b3448;
+    color:#fff;
+}
+
+.auto-sync{
+    margin-top:24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#252d40;
+    padding:16px;
+    border-radius:16px;
+}
+
+.auto-sync h4{
+    margin:0;
+    color:#fff;
+}
+
+.auto-sync p{
+    margin:4px 0 0;
+    color:#9aa5b5;
+    font-size:13px;
+}
