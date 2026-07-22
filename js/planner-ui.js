@@ -8,9 +8,9 @@ const PlannerUI = {
 
     init() {
 
-        this.bindEvents();
+    this.render();
 
-    },
+},
 
     bindEvents() {
 
@@ -65,10 +65,11 @@ const PlannerUI = {
     const planner =
         PlannerEngine.getPlanner();
 
-    if (
-        !planner ||
-        planner.subjects.length === 0
-    ) {
+    if {
+    !planner ||
+    !planner.subjects ||
+    planner.subjects.length === 0
+       } {
 
         container.innerHTML = `
 
