@@ -217,14 +217,27 @@ CloudSync.restoreAll = async function () {
 
         for (const module in this.modules) {
 
-            if (data[module]) {
+    if (data[module]) {
 
-                this.modules[module]
-                    .restore(data[module]);
+        showToast(
+            "Restoring: " + module,
+            "success"
+        );
 
-            }
+        this.modules[module].restore(
+            data[module]
+        );
 
-        }
+    } else {
+
+        showToast(
+            "Missing: " + module,
+            "warning"
+        );
+
+    }
+
+}
 
         showToast(
             "Cloud Restore Complete",
