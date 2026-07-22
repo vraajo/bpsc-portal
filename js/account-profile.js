@@ -73,32 +73,22 @@ function initProfileNavigation() {
 
 function initProfileButtons() {
 
-    const loginButton = document.getElementById("loginBtn");
+    const loginBtn = document.getElementById("loginBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
 
-    if (loginButton) {
+    if (loginBtn) {
 
-        loginButton.addEventListener("click", () => {
-
-            login();
-
-        });
+        loginBtn.onclick = login;
 
     }
 
-    const logoutButton = document.getElementById("logoutBtn");
+    if (logoutBtn) {
 
-    if (logoutButton) {
-
-        logoutButton.addEventListener("click", () => {
-
-            logout();
-
-        });
+        logoutBtn.onclick = logout;
 
     }
 
 }
-
 
 // ===============================
 // PROFILE HELPERS
