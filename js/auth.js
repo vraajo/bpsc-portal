@@ -142,6 +142,9 @@ function updateUI(user) {
 
     CloudSync.restoreAll();
 
+      updateLastSync();
+      showToast("Cloud Restore Complete", "success");
+
 }
 
   
