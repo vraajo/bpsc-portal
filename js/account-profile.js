@@ -70,21 +70,27 @@ function initProfileNavigation() {
 // ===============================
 // LOGIN / LOGOUT
 // ===============================
-
 function initProfileButtons() {
 
     const loginBtn = document.getElementById("loginBtn");
-    const logoutBtn = document.getElementById("logoutBtn");
+
+    console.log("Login Button:", loginBtn);
+    console.log("Login Function:", typeof login);
 
     if (loginBtn) {
-        loginBtn.onclick = login;
-    }
 
-    if (logoutBtn) {
-        logoutBtn.onclick = logout;
+        loginBtn.onclick = function () {
+
+            console.log("Button clicked");
+
+            login();
+
+        };
+
     }
 
 }
+
 // ===============================
 // PROFILE HELPERS
 // ===============================
