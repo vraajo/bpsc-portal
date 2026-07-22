@@ -26,34 +26,62 @@ const PlannerEngine = {
 
     addSubject(subjectName, firstTopic) {
 
-        const subject = {
+    const subject = {
 
-            id: crypto.randomUUID(),
+        id: crypto.randomUUID(),
 
-            title: subjectName.trim(),
+        title: subjectName.trim(),
 
-            completed: false,
+        completed: false,
 
-            topics: [
+        topics: [
 
-                {
+            {
 
-                    id: crypto.randomUUID(),
+                id: crypto.randomUUID(),
 
-                    title: firstTopic.trim(),
+                title: firstTopic.trim(),
 
-                    completed: false
+                completed: false
 
-                }
+            }
 
-            ]
+        ]
 
-        };
+    };
 
-        this.planner.subjects.push(subject);
+    this.planner.subjects.push(subject);
 
-        this.save();
+    this.save();
+
+},
+
+addTopic(subjectId, topicTitle) {
+
+    const subject = this.planner.subjects.find(function(item) {
+
+        return item.id === subjectId;
+
+    });
+
+    if (!subject) {
+
+        return;
 
     }
+
+    subject.topics.push({
+
+        id: crypto.randomUUID(),
+
+        title: topicTitle.trim(),
+
+        completed: false
+
+    });
+
+    this.save();
+
+}
 
 };
