@@ -257,9 +257,9 @@ CloudSync.restoreAll = async function () {
 
        console.error(e);
 
-       showToast(   "Restore Failed",    "error"  );
+       showToast(   "Restore Failed",    "error"  ); */
 
-   } */
+   } 
 
 };
 
