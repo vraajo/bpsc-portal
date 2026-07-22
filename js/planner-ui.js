@@ -12,12 +12,14 @@ const PlannerUI = {
 
 },
 
+   // Bind event function 
+   
     bindEvents() {
 
-        const addButton =
-            document.getElementById("addSubjectBtn");
+    const addButton =
+        document.getElementById("addSubjectBtn");
 
-        if (!addButton) return;
+    if (addButton) {
 
         addButton.addEventListener("click", () => {
 
@@ -25,7 +27,43 @@ const PlannerUI = {
 
         });
 
-    },
+    }
+
+    document
+        .querySelectorAll(".addTopicBtn")
+        .forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                const topic = prompt(
+                    "Enter Topic Name"
+                );
+
+                if (!topic) return;
+
+                PlannerEngine.addTopic(
+
+                    button.dataset.id,
+
+                    topic
+
+                );
+
+                this.render();
+
+                showToast(
+
+                    "Topic Added",
+
+                    "success"
+
+                );
+
+            });
+
+        });
+
+},
 
     openSubjectModal() {
 
