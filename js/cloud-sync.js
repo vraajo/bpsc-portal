@@ -8,6 +8,28 @@ const syncNowBtn = document.getElementById("syncNowBtn");
 const restoreBtn = document.getElementById("restoreBtn");
 const autoSyncToggle = document.getElementById("autoSyncToggle");
 
+
+/* =====================================
+   CLOUD SYNC ENGINE
+===================================== */
+
+const CloudSync = {
+
+    modules: {},
+
+    register(name, saveFunction, restoreFunction) {
+
+        this.modules[name] = {
+            save: saveFunction,
+            restore: restoreFunction
+        };
+
+    }
+
+};
+
+window.CloudSync = CloudSync;
+
 /* ---------- Update Status ---------- */
 
 function updateCloudStatus(status, color = "🟢") {
@@ -42,7 +64,7 @@ function updateLastSync() {
         lastSyncTime.textContent = "Last Sync : " + text;
     }
 
-    localStorage.setItem("lastSync", text);
+    Storage.save("lastSync", text);
 
 }
 
@@ -50,7 +72,7 @@ function updateLastSync() {
 
 function loadLastSync() {
 
-    const saved = localStorage.getItem("lastSync");
+    const saved = Storage.load("lastSync");
 
     if (saved && lastSyncTime) {
         lastSyncTime.textContent = "Last Sync : " + saved;
@@ -62,17 +84,18 @@ function loadLastSync() {
 
 function saveAutoSync() {
 
-    localStorage.setItem(
-        "autoSync",
-        autoSyncToggle.checked
-    );
+    Storage.save(
+    "autoSync",
+    autoSyncToggle.checked
+);
+   
 
 }
 
 function loadAutoSync() {
 
     const value =
-        localStorage.getItem("autoSync");
+    Storage.load("autoSync");
 
     if (value !== null) {
 
@@ -95,28 +118,9 @@ function initCloudSync() {
 
         syncNowBtn.onclick = function () {
 
-            updateCloudStatus(
-                "Syncing...",
-                "🔄"
-            );
+    CloudSync.syncAll();
 
-            setTimeout(function () {
-
-                updateCloudStatus(
-                    "Synced",
-                    "🟢"
-                );
-
-                updateLastSync();
-
-                showToast(
-                    "Cloud Sync Complete",
-                    "success"
-                );
-
-            }, 1200);
-
-        };
+};
 
     }
 
@@ -124,12 +128,9 @@ function initCloudSync() {
 
         restoreBtn.onclick = function () {
 
-            showToast(
-                "Restore module coming soon.",
-                "info"
-            );
+    CloudSync.restoreAll();
 
-        };
+};
 
     }
 
@@ -141,6 +142,108 @@ function initCloudSync() {
     }
 
 }
+
+
+/* =====================================
+   GENERIC CLOUD FUNCTIONS
+===================================== */
+
+CloudSync.syncAll = async function () {
+
+    if (!auth.currentUser) {
+
+        showToast("Please login first.", "error");
+        return;
+
+    }
+
+    updateCloudStatus("Syncing...", "🔄");
+
+    try {
+
+        const cloudData = {};
+
+        for (const module in this.modules) {
+
+            cloudData[module] =
+                this.modules[module].save();
+
+        }
+
+        cloudData.cloud = {
+
+            lastSync: firebase.firestore.FieldValue.serverTimestamp(),
+            version: 1
+
+        };
+
+        await db
+            .collection("users")
+            .doc(auth.currentUser.uid)
+            .set(cloudData, { merge: true });
+
+        updateCloudStatus("Synced", "🟢");
+
+        updateLastSync();
+
+        showToast("Cloud Sync Complete", "success");
+
+    } catch (e) {
+
+        console.error(e);
+
+        updateCloudStatus("Failed", "🔴");
+
+        showToast("Cloud Sync Failed", "error");
+
+    }
+
+};
+
+CloudSync.restoreAll = async function () {
+
+    if (!auth.currentUser) return;
+
+    try {
+
+        const snapshot =
+            await db
+                .collection("users")
+                .doc(auth.currentUser.uid)
+                .get();
+
+        if (!snapshot.exists) return;
+
+        const data = snapshot.data();
+
+        for (const module in this.modules) {
+
+            if (data[module]) {
+
+                this.modules[module]
+                    .restore(data[module]);
+
+            }
+
+        }
+
+        showToast(
+            "Cloud Restore Complete",
+            "success"
+        );
+
+    } catch (e) {
+
+        console.error(e);
+
+        showToast(
+            "Restore Failed",
+            "error"
+        );
+
+    }
+
+};
 
 /* ---------- Export ---------- */
 
