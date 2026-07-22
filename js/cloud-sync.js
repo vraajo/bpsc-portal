@@ -200,6 +200,16 @@ CloudSync.syncAll = async function () {
 };
 
 CloudSync.restoreAll = async function () {
+   
+   //below added
+
+   console.log(this.modules);
+showToast(
+    "Modules: " + Object.keys(this.modules).join(", "),
+    "warning"
+);
+
+   //above added
 
     if (!auth.currentUser) return;
 
