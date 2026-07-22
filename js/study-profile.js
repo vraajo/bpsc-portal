@@ -566,7 +566,7 @@ function enableLivePreview() {
 
 function registerButtons() {
 
-    const button = $("saveProfileBtn");
+    const button = $("saveStudyProfileBtn");
 
     if (!button) return;
 
