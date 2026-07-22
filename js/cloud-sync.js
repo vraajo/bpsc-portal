@@ -162,12 +162,22 @@ CloudSync.syncAll = async function () {
 
         const cloudData = {};
 
+       //added below
+
         for (const module in this.modules) {
 
-            cloudData[module] =
-                this.modules[module].save();
+    const moduleData = this.modules[module].save();
 
-        }
+    showToast(
+        module + ": " + (moduleData ? "Has Data" : "NULL"),
+        "warning"
+    );
+
+    cloudData[module] = moduleData;
+
+}
+
+       // added above
 
         cloudData.cloud = {
 
