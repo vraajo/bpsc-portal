@@ -210,59 +210,13 @@ function validateProfile(profile){
 
 function saveLocalProfile(profile) {
 
-    try {
-
-        localStorage.setItem(
-
-            PROFILE_KEY,
-
-            JSON.stringify(profile)
-
-        );
-
-        return true;
-
-    } catch (error) {
-
-        console.error(error);
-
-        showToast(
-
-            "Unable to save locally",
-
-            "error"
-
-        );
-
-        return false;
-
-    }
+    return Storage.save(PROFILE_KEY, profile);
 
 }
 
 function loadLocalProfile() {
 
-    try {
-
-        const profile = localStorage.getItem(PROFILE_KEY);
-
-        if (!profile) {
-
-            return null;
-
-        }
-
-        return JSON.parse(profile);
-
-    }
-
-    catch (error) {
-
-        console.error(error);
-
-        return null;
-
-    }
+    return Storage.load(PROFILE_KEY);
 
 }
 
