@@ -90,12 +90,21 @@ auth.onAuthStateChanged(async (user) => {
 
     updateUI(user);
 
-    // Restore all registered modules
+     setTimeout(async () => {
+
+           // Restore all registered modules
+
     if (typeof CloudSync !== "undefined") {
 
         await CloudSync.restoreAll();
 
     }
+
+}, 500);
+
+     
+ 
+    
 
     // Already logged in
     if (typeof welcomeAuthenticated === "function") {
