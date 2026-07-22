@@ -200,6 +200,8 @@ CloudSync.syncAll = async function () {
 };
 
 CloudSync.restoreAll = async function () {
+
+   showToast("restoreAll() started", "warning");
    
    //below added
 
