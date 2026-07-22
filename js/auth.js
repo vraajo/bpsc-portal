@@ -100,6 +100,10 @@ auth.onAuthStateChanged((user) => {
 
     updateUI(user);
 
+document.getElementById("guestCard").style.display = "none";
+document.getElementById("userCard").style.display = "block";
+document.getElementById("syncStatus").textContent = "Synced with Google";
+     
     // Already logged in
     if (typeof welcomeAuthenticated === "function") {
       welcomeAuthenticated();
@@ -109,6 +113,10 @@ auth.onAuthStateChanged((user) => {
 
     guestUI();
 
+document.getElementById("guestCard").style.display = "block";
+document.getElementById("userCard").style.display = "none";
+document.getElementById("syncStatus").textContent = "Guest Mode";
+     
     // Not logged in
     if (typeof welcomeGuest === "function") {
       welcomeGuest();
