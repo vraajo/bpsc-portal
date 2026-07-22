@@ -4,9 +4,6 @@
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
-const loginBtn = document.getElementById("loginBtn");
-const logoutBtn = document.getElementById("logoutBtn");
-
 // Default avatar
 const DEFAULT_AVATAR =
   "https://vraajo.github.io/bpsc-portal/images/default-avatar.png";
@@ -15,13 +12,6 @@ const DEFAULT_AVATAR =
    Event Listeners
 ========================== */
 
-if (loginBtn) {
-  loginBtn.addEventListener("click", login);
-}
-
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", logout);
-}
 
 /* ==========================
    Login
