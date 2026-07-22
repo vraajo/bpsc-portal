@@ -135,6 +135,15 @@ function updateUI(user) {
   document.getElementById("userPhoto").src = photo;
   document.getElementById("profilePhoto").src = photo;
 
+
+   
+
+   if (typeof CloudSync !== "undefined") {
+
+    CloudSync.restoreAll();
+
+}
+
   
 
   // Update Account Profile page
