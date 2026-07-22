@@ -715,6 +715,35 @@ window.ProfileModule = {
 
 };
 
+
+/* ==========================================================
+   CLOUD SYNC REGISTRATION
+========================================================== */
+
+if (typeof CloudSync !== "undefined") {
+
+    CloudSync.register(
+
+        "profile",
+
+        function () {
+
+            return loadLocalProfile();
+
+        },
+
+        function (profile) {
+
+            fillProfile(profile);
+
+            saveLocalProfile(profile);
+
+        }
+
+    );
+
+}
+
 /* ==========================================================
    END OF FILE
 ========================================================== */
