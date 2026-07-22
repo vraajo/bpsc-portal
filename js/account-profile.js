@@ -77,19 +77,14 @@ function initProfileButtons() {
     const logoutBtn = document.getElementById("logoutBtn");
 
     if (loginBtn) {
-
         loginBtn.onclick = login;
-
     }
 
     if (logoutBtn) {
-
         logoutBtn.onclick = logout;
-
     }
 
 }
-
 // ===============================
 // PROFILE HELPERS
 // ===============================
@@ -155,3 +150,5 @@ function setLoggedInUser(user) {
 window.setGuestMode = setGuestMode;
 
 window.setLoggedInUser = setLoggedInUser;
+
+window.initProfileButtons = initProfileButtons;
