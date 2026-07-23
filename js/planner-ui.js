@@ -181,6 +181,82 @@ const PlannerUI = {
 
 },
 
+   closeModal() {
+
+    document
+        .getElementById("plannerModal")
+        .classList.add("hidden");
+
+},
+
+   /*=========================================
+   bind modals function
+   ==========================================*/
+
+   bindModal() {
+
+    const cancel =
+        document.getElementById("plannerCancelBtn");
+
+    const save =
+        document.getElementById("plannerSaveBtn");
+
+    if (cancel) {
+
+        cancel.onclick = () => {
+
+            this.closeModal();
+
+        };
+
+    }
+
+    if (save) {
+
+        save.onclick = () => {
+
+            const subject =
+                document
+                .getElementById("plannerSubjectInput")
+                .value
+                .trim();
+
+            const topic =
+                document
+                .getElementById("plannerTopicInput")
+                .value
+                .trim();
+
+            if (!subject || !topic) {
+
+                showToast(
+                    "Please fill all fields",
+                    "warning"
+                );
+
+                return;
+
+            }
+
+            PlannerEngine.addSubject(
+                subject,
+                topic
+            );
+
+            this.closeModal();
+
+            this.render();
+
+            showToast(
+                "Subject Added",
+                "success"
+            );
+
+        };
+
+    }
+
+},
 
    //render art added in second time
 
