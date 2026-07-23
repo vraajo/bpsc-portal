@@ -682,6 +682,22 @@ this.openConfirmModal(
 
     planner.subjects.forEach(subject => {
 
+       //added new code below
+
+       const totalTopics = subject.topics.length;
+
+const completedTopics = subject.topics.filter(topic => {
+
+    return topic.completed;
+
+}).length;
+
+const progress = totalTopics === 0
+    ? 0
+    : Math.round((completedTopics / totalTopics) * 100);
+
+       //added new code above
+
         html += `
 
         <div class="planner-card">
@@ -696,12 +712,28 @@ this.openConfirmModal(
 
         </h3>
 
-        <p class="planner-count">
+  <p class="planner-count">
 
-            ${subject.topics.length}
-            Topic${subject.topics.length !== 1 ? "s" : ""}
+    ${completedTopics} / ${totalTopics}
+    Topic${totalTopics !== 1 ? "s" : ""} Completed
 
-        </p>
+</p>
+
+<div class="planner-progress">
+
+    <div
+        class="planner-progress-fill"
+        style="width:${progress}%">
+
+    </div>
+
+</div>
+
+<div class="planner-progress-text">
+
+    ${progress}% Completed
+
+</div>
 
     </div>
 
