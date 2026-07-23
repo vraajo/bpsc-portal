@@ -179,6 +179,14 @@ const PlannerUI = {
 
 },
 
+   // new function bindSubjectMenu
+
+
+
+   
+   //above is the new code 
+
+
     openSubjectModal() {
 
     const modal = document.getElementById("plannerModal");
@@ -290,6 +298,47 @@ const PlannerUI = {
 
             showToast(
                 "Subject Added",
+                "success"
+            );
+
+        };
+
+    }
+
+},
+
+
+   // new bind function below
+
+   bindSubjectMenu() {
+
+    const rename =
+        document.getElementById("renameSubjectBtn");
+
+    if (rename) {
+
+        rename.onclick = () => {
+
+            this.closeSubjectMenu();
+
+            const title = prompt(
+                "Rename Subject"
+            );
+
+            if (!title) return;
+
+            PlannerEngine.editSubject(
+
+                this.selectedSubjectId,
+
+                title
+
+            );
+
+            this.render();
+
+            showToast(
+                "Subject Updated",
                 "success"
             );
 
@@ -443,6 +492,7 @@ const PlannerUI = {
 
     this.bindEvents();
     this.bindModal();
+    this.bindSubjectMenu();
 
 }
 
