@@ -714,6 +714,32 @@ const remainingTopics =
 
 const overallProgress =
 
+   
+//adding below code
+const today = new Date()
+    .toISOString()
+    .split("T")[0];
+
+const completedToday = planner.subjects.reduce(
+
+    (total, subject) => {
+
+        return total +
+
+        subject.topics.filter(topic => {
+
+            return topic.completedDate === today;
+
+        }).length;
+
+    },
+
+    0
+
+);
+   //adding above code
+
+
     totalTopics === 0
 
     ? 0
