@@ -81,6 +81,28 @@ this.openConfirmModal(
 
 });
 
+       // // Topic checkbox
+
+document
+.querySelectorAll(".topicCheckbox")
+.forEach(box => {
+
+    box.addEventListener("change", () => {
+
+        PlannerEngine.toggleTopic(
+
+            box.dataset.subject,
+
+            box.dataset.topic
+
+        );
+
+        this.render();
+
+    });
+
+});
+
 //delete subject block
        
        document
