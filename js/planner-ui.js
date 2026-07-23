@@ -242,35 +242,36 @@ const PlannerUI = {
 
         <div class="planner-card">
 
-         <div class="planner-title">
+    <div class="planner-card-header">
 
-    <span>
+    <div class="planner-card-info">
 
-        ${subject.title}
+        <h3 class="planner-subject">
 
-    </span>
+            ${subject.title}
 
-    <div>
+        </h3>
 
-        <button
-            class="editSubjectBtn"
-            data-id="${subject.id}">
+        <p class="planner-count">
 
-            ✏️
+            ${subject.topics.length}
+            Topic${subject.topics.length !== 1 ? "s" : ""}
 
-        </button>
-
-        <button
-            class="deleteSubjectBtn"
-            data-id="${subject.id}">
-
-            🗑
-
-        </button>
+        </p>
 
     </div>
 
+    <button
+        class="subjectMenuBtn"
+        data-id="${subject.id}">
+
+        ⋮
+
+    </button>
+
 </div>
+
+<div class="planner-divider"></div>
 
             <div class="planner-topics">
 
