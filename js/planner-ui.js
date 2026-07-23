@@ -172,9 +172,9 @@ topicButtons.forEach(button => {
    //above is the new code 
 
 
-    openSubjectModal(subjectId) {
+    openSubjectModal() {
 
-        this.modalMode = "topic";
+        this.modalMode = "subject";
 
     this.selectedTopicSubject = subjectId;
 
