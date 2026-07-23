@@ -84,4 +84,38 @@ addTopic(subjectId, topicTitle) {
 
 }
 
+/* ==========================================
+   toggle topic
+   ========================================== */
+
+   toggleTopic(subjectId, topicId) {
+
+    const subject = this.planner.subjects.find(item => {
+
+        return item.id === subjectId;
+
+    });
+
+    if (!subject) return;
+
+    const topic = subject.topics.find(item => {
+
+        return item.id === topicId;
+
+    });
+
+    if (!topic) return;
+
+    topic.completed = !topic.completed;
+
+    subject.completed = subject.topics.every(item => {
+
+        return item.completed;
+
+    });
+
+    this.save();
+
+},
+
 };
