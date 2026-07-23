@@ -709,34 +709,38 @@ const completedTopics = planner.subjects.reduce(
 );
 
 const remainingTopics =
-
     totalTopics - completedTopics;
 
 const overallProgress =
+    totalTopics === 0
+    ? 0
+    : Math.round(
+        (completedTopics / totalTopics) * 100
+    );
 
-   
-//adding below code
-const today = new Date()
-    .toISOString()
-    .split("T")[0];
+const today =
+    new Date()
+        .toISOString()
+        .split("T")[0];
 
-const completedToday = planner.subjects.reduce(
+const completedToday =
+    planner.subjects.reduce(
 
-    (total, subject) => {
+        (total, subject) => {
 
-        return total +
+            return total +
 
-        subject.topics.filter(topic => {
+            subject.topics.filter(topic => {
 
-            return topic.completedDate === today;
+                return topic.completedDate === today;
 
-        }).length;
+            }).length;
 
-    },
+        },
 
-    0
+        0
 
-);
+    );
    //adding above code
 
 
@@ -809,6 +813,34 @@ const completedToday = planner.subjects.reduce(
         ${overallProgress}% Overall Progress
 
     </div>
+
+</div>
+
+`;
+
+       html += `
+
+<div class="planner-today-card">
+
+    <h2>
+
+        Today's Progress
+
+    </h2>
+
+    <div class="planner-today-value">
+
+        ${completedToday}
+
+    </div>
+
+    <p>
+
+        Topic${completedToday !== 1 ? "s" : ""}
+
+        Completed Today
+
+    </p>
 
 </div>
 
