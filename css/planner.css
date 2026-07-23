@@ -525,3 +525,116 @@
     border-top:1px solid rgba(255,255,255,.06);
 
 }
+
+/* ==========================================
+   PLANNER MODAL
+========================================== */
+
+#plannerModal{
+    position:fixed;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    z-index:99999;
+    transition:.25s;
+}
+
+#plannerModal.hidden{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.planner-modal-card{
+    width:100%;
+    max-width:440px;
+    background:#1f2937;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:28px;
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
+    animation:plannerPopup .25s ease;
+}
+
+#plannerModalTitle{
+    color:#fff;
+    font-size:26px;
+    font-weight:700;
+    margin-bottom:24px;
+}
+
+.planner-modal-card label{
+    display:block;
+    margin-bottom:8px;
+    color:#cbd5e1;
+    font-size:14px;
+    font-weight:600;
+}
+
+.planner-modal-card input{
+    width:100%;
+    height:52px;
+    padding:0 16px;
+    margin-bottom:18px;
+    border:none;
+    outline:none;
+    border-radius:14px;
+    background:#111827;
+    color:#fff;
+    font-size:15px;
+    box-sizing:border-box;
+}
+
+.planner-modal-card input:focus{
+    box-shadow:0 0 0 2px #2563eb;
+}
+
+.planner-modal-actions{
+    display:flex;
+    gap:14px;
+    margin-top:12px;
+}
+
+#plannerCancelBtn,
+#plannerSaveBtn{
+    flex:1;
+    height:52px;
+    border:none;
+    border-radius:14px;
+    color:#fff;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+#plannerCancelBtn{
+    background:#374151;
+}
+
+#plannerSaveBtn{
+    background:#2563eb;
+}
+
+#plannerCancelBtn:hover{
+    background:#4b5563;
+}
+
+#plannerSaveBtn:hover{
+    background:#1d4ed8;
+}
+
+@keyframes plannerPopup{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.95);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
