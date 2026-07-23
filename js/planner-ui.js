@@ -63,25 +63,7 @@ const PlannerUI = {
 
        // Adding here new code 
 
-       document
-.querySelectorAll(".topicCheckbox")
-.forEach(box => {
-
-    box.addEventListener("change", () => {
-
-        PlannerEngine.toggleTopic(
-
-            box.dataset.subject,
-
-            box.dataset.topic
-
-        );
-
-        this.render();
-
-    });
-
-});
+       
 
 },
 
@@ -180,12 +162,7 @@ const PlannerUI = {
 
     <label>
 
-        <input
-            type="checkbox"
-            class="topicCheckbox"
-            data-subject="${subject.id}"
-            data-topic="${topic.id}"
-            ${topic.completed ? "checked" : ""}>
+    ☐ ${topic.title}
 
         <span>
 
