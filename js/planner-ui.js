@@ -61,8 +61,40 @@ const PlannerUI = {
 
     });
 
+       
+
        // Adding here new code 
 
+       document
+.querySelectorAll(".deleteTopicBtn")
+.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const ok = confirm(
+            "Delete this topic?"
+        );
+
+        if (!ok) return;
+
+        PlannerEngine.deleteTopic(
+
+            button.dataset.subject,
+
+            button.dataset.topic
+
+        );
+
+        this.render();
+
+        showToast(
+            "Topic Deleted",
+            "success"
+        );
+
+    });
+
+});
        
 
 },
