@@ -75,6 +75,14 @@ document.addEventListener("DOMContentLoaded", () => {
             currentPage.classList.remove("hidden");
         }
 
+       // Dashboard Refresh
+if (
+    pageId === "dashboardPage" &&
+    typeof Dashboard !== "undefined"
+) {
+    Dashboard.refresh();
+}
+
        // Re-bind Profile buttons every time Profile page opens
 
          if (pageId === "profilePage" && typeof initProfileButtons === "function") {
