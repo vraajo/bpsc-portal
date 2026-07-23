@@ -1,0 +1,459 @@
+/* ==========================================
+   PLANNER PAGE
+========================================== */
+
+#plannerPage{
+    padding:20px;
+    max-width:900px;
+    margin:auto;
+    animation:fadeIn .35s ease;
+}
+
+#plannerContainer{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+/* ==========================================
+   PAGE HEADER
+========================================== */
+
+.planner-header{
+    margin-bottom:8px;
+}
+
+.planner-header h2{
+    font-size:32px;
+    font-weight:700;
+    color:#fff;
+    margin-bottom:6px;
+}
+
+.planner-header p{
+    font-size:15px;
+    color:#94a3b8;
+    line-height:1.5;
+}
+
+/* ==========================================
+   SUBJECT CARD
+========================================== */
+
+.planner-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:22px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+
+}
+
+.planner-card:hover{
+
+    transform:translateY(-2px);
+
+    border-color:rgba(37,99,235,.20);
+
+    box-shadow:
+        0 22px 55px rgba(0,0,0,.35);
+
+}
+
+.planner-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    top:-90px;
+    right:-80px;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    opacity:.08;
+
+    filter:blur(60px);
+
+    pointer-events:none;
+
+}
+
+/* ==========================================
+   CARD HEADER
+========================================== */
+
+.planner-card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+    margin-bottom:18px;
+
+}
+
+.planner-card-info{
+
+    flex:1;
+
+}
+
+.planner-subject{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#fff;
+
+    line-height:1.2;
+
+    margin:0;
+
+}
+
+.planner-count{
+
+    margin-top:6px;
+
+    font-size:14px;
+
+    color:#94a3b8;
+
+}
+
+/* ==========================================
+   MENU BUTTON
+========================================== */
+
+.subjectMenuBtn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:transparent;
+
+    color:#94a3b8;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.subjectMenuBtn:hover{
+
+    background:rgba(255,255,255,.06);
+
+    color:#fff;
+
+}
+
+/* ==========================================
+   DIVIDER
+========================================== */
+
+.planner-divider{
+
+    height:1px;
+
+    background:rgba(255,255,255,.08);
+
+    margin-bottom:18px;
+
+}
+
+/* ==========================================
+   TOPICS
+========================================== */
+
+.planner-topics{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.planner-topic{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 4px;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.planner-topic:last-child{
+
+    border-bottom:none;
+
+}
+
+.planner-topic span{
+
+    font-size:18px;
+
+    color:#f3f4f6;
+
+    line-height:1.4;
+
+}
+
+/* ==========================================
+   DELETE BUTTON
+========================================== */
+
+.deleteTopicBtn{
+
+    width:36px;
+
+    height:36px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:transparent;
+
+    color:#9ca3af;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.deleteTopicBtn:hover{
+
+    background:rgba(239,68,68,.12);
+
+    color:#ef4444;
+
+}
+
+/* ==========================================
+   ADD TOPIC BUTTON
+========================================== */
+
+.addTopicBtn{
+
+    width:100%;
+
+    height:52px;
+
+    margin-top:18px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#1f2937;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.addTopicBtn:hover{
+
+    background:#374151;
+
+    transform:translateY(-1px);
+
+}
+
+/* ==========================================
+   ADD SUBJECT BUTTON
+========================================== */
+
+#addSubjectBtn{
+
+    width:100%;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+#addSubjectBtn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.plannerEmpty{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:70px 25px;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+}
+
+.plannerIcon{
+
+    font-size:64px;
+
+    margin-bottom:18px;
+
+}
+
+.plannerEmpty h3{
+
+    font-size:26px;
+
+    color:#fff;
+
+    margin-bottom:10px;
+
+}
+
+.plannerEmpty p{
+
+    color:#94a3b8;
+
+    line-height:1.6;
+
+    margin-bottom:30px;
+
+}
+
+/* ==========================================
+   ANIMATION
+========================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(12px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width:600px){
+
+    #plannerPage{
+
+        padding:16px;
+
+    }
+
+    .planner-card{
+
+        padding:18px;
+
+        border-radius:20px;
+
+    }
+
+    .planner-subject{
+
+        font-size:24px;
+
+    }
+
+    .planner-topic span{
+
+        font-size:17px;
+
+    }
+
+}
