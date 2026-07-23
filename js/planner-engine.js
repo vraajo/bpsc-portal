@@ -139,6 +139,30 @@ deleteSubject(subjectId) {
 
 },
 
+   /* ==========================================
+   Edit Subject
+   ========================================== */
+
+editSubject(subjectId, newTitle) {
+
+    const subject = this.planner.subjects.find(function(subject) {
+
+        return subject.id === subjectId;
+
+    });
+
+    if (!subject) {
+
+        return;
+
+    }
+
+    subject.title = newTitle.trim();
+
+    this.save();
+
+},
+
     /* ==========================================
        Toggle Topic
        ========================================== */
