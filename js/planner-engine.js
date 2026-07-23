@@ -18,6 +18,79 @@ const PlannerEngine = {
 
     },
 
+   /* ==========================================
+   Statistics Function
+   ========================================== */
+
+   getStatistics() {
+
+    const planner = this.getPlanner();
+
+    const totalSubjects = planner.subjects.length;
+
+    const totalTopics = planner.subjects.reduce(
+        (total, subject) => total + subject.topics.length,
+        0
+    );
+
+    const completedTopics = planner.subjects.reduce(
+        (total, subject) => {
+
+            return total +
+
+            subject.topics.filter(topic => topic.completed).length;
+
+        },
+        0
+    );
+
+    const remainingTopics =
+        totalTopics - completedTopics;
+
+    const overallProgress =
+        totalTopics === 0
+        ? 0
+        : Math.round(
+            (completedTopics / totalTopics) * 100
+        );
+
+    const today =
+        new Date()
+            .toISOString()
+            .split("T")[0];
+
+    const completedToday =
+        planner.subjects.reduce(
+
+            (total, subject) => {
+
+                return total +
+
+                subject.topics.filter(topic => {
+
+                    return topic.completedDate === today;
+
+                }).length;
+
+            },
+
+            0
+
+        );
+
+    return {
+
+        totalSubjects,
+        totalTopics,
+        completedTopics,
+        remainingTopics,
+        overallProgress,
+        completedToday
+
+    };
+
+},
+
     save() {
 
         PlannerStorage.save(this.planner);
