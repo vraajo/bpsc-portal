@@ -63,7 +63,7 @@ const PlannerUI = {
 
        
 
-       // Adding here new code 
+       // delete topic block
 
        document
 .querySelectorAll(".deleteTopicBtn")
@@ -96,7 +96,8 @@ const PlannerUI = {
 
 });
 
-//add new code 
+//delete subject block
+       
        document
 .querySelectorAll(".deleteSubjectBtn")
 .forEach(button => {
@@ -125,7 +126,39 @@ const PlannerUI = {
     });
 
 });
-       
+
+       //edit subject block
+
+       document
+.querySelectorAll(".editSubjectBtn")
+.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const title = prompt(
+            "Rename Subject"
+        );
+
+        if (!title) return;
+
+        PlannerEngine.editSubject(
+
+            button.dataset.id,
+
+            title
+
+        );
+
+        this.render();
+
+        showToast(
+            "Subject Updated",
+            "success"
+        );
+
+    });
+
+});
 
 },
 
@@ -217,13 +250,25 @@ const PlannerUI = {
 
     </span>
 
-    <button
-        class="deleteSubjectBtn"
-        data-id="${subject.id}">
+    <div>
 
-        🗑 Subject
+        <button
+            class="editSubjectBtn"
+            data-id="${subject.id}">
 
-    </button>
+            ✏️
+
+        </button>
+
+        <button
+            class="deleteSubjectBtn"
+            data-id="${subject.id}">
+
+            🗑
+
+        </button>
+
+    </div>
 
 </div>
 
