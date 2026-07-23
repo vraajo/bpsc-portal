@@ -82,7 +82,7 @@ addTopic(subjectId, topicTitle) {
 
     this.save();
 
-}
+},
 
 /* ==========================================
    toggle topic
