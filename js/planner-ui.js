@@ -678,7 +678,115 @@ this.openConfirmModal(
 
     }
 
+       //adding new code
+
+       const totalSubjects = planner.subjects.length;
+
+const totalTopics = planner.subjects.reduce(
+
+    (total, subject) => {
+
+        return total + subject.topics.length;
+
+    },
+
+    0
+
+);
+
+const completedTopics = planner.subjects.reduce(
+
+    (total, subject) => {
+
+        return total +
+
+        subject.topics.filter(topic => topic.completed).length;
+
+    },
+
+    0
+
+);
+
+const remainingTopics =
+
+    totalTopics - completedTopics;
+
+const overallProgress =
+
+    totalTopics === 0
+
+    ? 0
+
+    : Math.round(
+
+        (completedTopics / totalTopics) * 100
+
+    );
+       
+       //above is new code
+
     let html = "";
+
+       html += `
+
+<div class="planner-summary">
+
+    <h2>
+
+        📊 Study Analytics
+
+    </h2>
+
+    <div class="planner-summary-grid">
+
+        <div>
+
+            <strong>${totalSubjects}</strong>
+
+            <span>Subjects</span>
+
+        </div>
+
+        <div>
+
+            <strong>${completedTopics}</strong>
+
+            <span>Completed</span>
+
+        </div>
+
+        <div>
+
+            <strong>${remainingTopics}</strong>
+
+            <span>Remaining</span>
+
+        </div>
+
+    </div>
+
+    <div class="planner-progress">
+
+        <div
+
+            class="planner-progress-fill"
+
+            style="width:${overallProgress}%">
+
+        </div>
+
+    </div>
+
+    <div class="planner-progress-text">
+
+        ${overallProgress}% Overall Progress
+
+    </div>
+
+</div>
+
+`;
 
     planner.subjects.forEach(subject => {
 
