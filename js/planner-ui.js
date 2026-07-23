@@ -164,28 +164,22 @@ const PlannerUI = {
 
     openSubjectModal() {
 
-        const subject = prompt(
-            "Enter Subject Name"
-        );
+    const modal = document.getElementById("plannerModal");
 
-        if (!subject) return;
+    document.getElementById("plannerModalTitle").textContent =
+        "Add Subject";
 
-        const topic = prompt(
-            "Enter First Topic"
-        );
+    document.getElementById("plannerSubjectInput").value = "";
 
-        if (!topic) return;
+    document.getElementById("plannerTopicInput").value = "";
 
-        PlannerEngine.addSubject(subject, topic);
+    document.getElementById("plannerTopicField").style.display = "flex";
 
-        showToast(
-            "Subject Added",
-            "success"
-        );
+    modal.classList.remove("hidden");
 
-        this.render();
+    document.getElementById("plannerSubjectInput").focus();
 
-    },
+},
 
 
    //render art added in second time
