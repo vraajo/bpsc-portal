@@ -193,7 +193,20 @@ editSubject(subjectId, newTitle) {
 
         }
 
-        topic.completed = !topic.completed;
+        if (!topic.completed) {
+
+    topic.completed = true;
+
+    topic.completedDate =
+        new Date().toISOString().split("T")[0];
+
+} else {
+
+    topic.completed = false;
+
+    delete topic.completedDate;
+
+}
 
         subject.completed = subject.topics.every(function (item) {
 
