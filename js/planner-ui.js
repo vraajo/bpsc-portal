@@ -9,6 +9,9 @@ const PlannerUI = {
     selectedSubjectId:null,
     modalMode: "",
     selectedTopicSubject: null,
+    confirmAction: null,
+    confirmSubjectId: null,
+    confirmTopicId: null,
 
     init() {
 
@@ -58,26 +61,21 @@ topicButtons.forEach(button => {
 
     button.addEventListener("click", () => {
 
-        const ok = confirm(
-            "Delete this topic?"
-        );
+        this.confirmSubjectId =
+    button.dataset.subject;
 
-        if (!ok) return;
+this.confirmTopicId =
+    button.dataset.topic;
 
-        PlannerEngine.deleteTopic(
+this.openConfirmModal(
 
-            button.dataset.subject,
+    "Delete Topic",
 
-            button.dataset.topic
+    "Delete this topic?",
 
-        );
+    "deleteTopic"
 
-        this.render();
-
-        showToast(
-            "Topic Deleted",
-            "success"
-        );
+);
 
     });
 
@@ -269,6 +267,32 @@ topicButtons.forEach(button => {
 
 },
 
+   openConfirmModal(title, message, action) {
+
+    this.confirmAction = action;
+
+    document.getElementById(
+        "plannerConfirmTitle"
+    ).textContent = title;
+
+    document.getElementById(
+        "plannerConfirmText"
+    ).textContent = message;
+
+    document
+        .getElementById("plannerConfirmModal")
+        .classList.remove("hidden");
+
+},
+
+   closeConfirmModal() {
+
+    document
+        .getElementById("plannerConfirmModal")
+        .classList.add("hidden");
+
+},
+
    openSubjectMenu(button) {
 
     const menu = document.getElementById("subjectMenu");
@@ -304,6 +328,12 @@ topicButtons.forEach(button => {
 
     const save =
         document.getElementById("plannerSaveBtn");
+      
+    const confirmCancel =
+    document.getElementById("plannerConfirmCancelBtn");
+
+    const confirmOk =
+    document.getElementById("plannerConfirmOkBtn");
 
     if (cancel) {
 
@@ -442,6 +472,55 @@ if (save) {
 
 }
 
+      if (confirmCancel) {
+
+    confirmCancel.onclick = () => {
+
+        this.closeConfirmModal();
+
+    };
+
+}
+
+if (confirmOk) {
+
+    confirmOk.onclick = () => {
+
+        if (this.confirmAction === "deleteSubject") {
+
+            PlannerEngine.deleteSubject(
+                this.confirmSubjectId
+            );
+
+            showToast(
+                "Subject Deleted",
+                "success"
+            );
+
+        }
+
+        if (this.confirmAction === "deleteTopic") {
+
+            PlannerEngine.deleteTopic(
+                this.confirmSubjectId,
+                this.confirmTopicId
+            );
+
+            showToast(
+                "Topic Deleted",
+                "success"
+            );
+
+        }
+
+        this.closeConfirmModal();
+
+        this.render();
+
+    };
+
+}
+
 },
 
 
@@ -493,22 +572,18 @@ if (remove) {
 
         this.closeSubjectMenu();
 
-        const ok = confirm(
-            "Delete this subject and all topics?"
-        );
+        this.confirmSubjectId =
+    this.selectedSubjectId;
 
-        if (!ok) return;
+this.openConfirmModal(
 
-        PlannerEngine.deleteSubject(
-            this.selectedSubjectId
-        );
+    "Delete Subject",
 
-        this.render();
+    "Delete this subject and all topics?",
 
-        showToast(
-            "Subject Deleted",
-            "success"
-        );
+    "deleteSubject"
+
+);
 
     };
 
