@@ -346,6 +346,38 @@ const PlannerUI = {
 
     }
 
+      //delete sybject block 
+
+      const remove =
+    document.getElementById("removeSubjectBtn");
+
+if (remove) {
+
+    remove.onclick = () => {
+
+        this.closeSubjectMenu();
+
+        const ok = confirm(
+            "Delete this subject and all topics?"
+        );
+
+        if (!ok) return;
+
+        PlannerEngine.deleteSubject(
+            this.selectedSubjectId
+        );
+
+        this.render();
+
+        showToast(
+            "Subject Deleted",
+            "success"
+        );
+
+    };
+
+}
+
 },
 
    //render art added in second time
