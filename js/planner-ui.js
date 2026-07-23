@@ -34,38 +34,21 @@ const PlannerUI = {
     }
 
     const topicButtons =
-        document.querySelectorAll(".addTopicBtn");
+    document.querySelectorAll(".addTopicBtn");
 
-    topicButtons.forEach(button => {
+topicButtons.forEach(button => {
 
-        button.addEventListener("click", () => {
+    button.addEventListener("click", () => {
 
-            const topic = prompt(
-                "Enter Topic Name"
-            );
+        this.openTopicModal(
 
-            if (!topic) return;
+            button.dataset.id
 
-            PlannerEngine.addTopic(
-
-                button.dataset.id,
-
-                topic
-
-            );
-
-            this.render();
-
-            showToast(
-                "Topic Added",
-                "success"
-            );
-
-        });
+        );
 
     });
 
-       
+});
 
        // delete topic block
 
@@ -276,18 +259,18 @@ const PlannerUI = {
 
     }
 
-    if (save) {
+if (save) {
 
-        save.onclick = () => {
+    save.onclick = () => {
 
-            const subject =
-                document
+        if (this.modalMode === "subject") {
+
+            const subject = document
                 .getElementById("plannerSubjectInput")
                 .value
                 .trim();
 
-            const topic =
-                document
+            const topic = document
                 .getElementById("plannerTopicInput")
                 .value
                 .trim();
@@ -317,9 +300,52 @@ const PlannerUI = {
                 "success"
             );
 
-        };
+            return;
 
-    }
+        }
+
+        if (this.modalMode === "topic") {
+
+            const topic = document
+                .getElementById("plannerSubjectInput")
+                .value
+                .trim();
+
+            if (!topic) {
+
+                showToast(
+                    "Enter topic name",
+                    "warning"
+                );
+
+                return;
+
+            }
+
+            PlannerEngine.addTopic(
+
+                this.selectedTopicSubject,
+
+                topic
+
+            );
+
+            this.closeModal();
+
+            this.render();
+
+            showToast(
+                "Topic Added",
+                "success"
+            );
+
+            return;
+
+        }
+
+    };
+
+}
 
 },
 
