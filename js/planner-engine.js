@@ -24,98 +24,114 @@ const PlannerEngine = {
 
     },
 
+    /* ==========================================
+       Add Subject
+       ========================================== */
+
     addSubject(subjectName, firstTopic) {
 
-    const subject = {
+        const subject = {
 
-        id: crypto.randomUUID(),
+            id: crypto.randomUUID(),
 
-        title: subjectName.trim(),
+            title: subjectName.trim(),
 
-        completed: false,
+            completed: false,
 
-        topics: [
+            topics: [
 
-            {
+                {
 
-                id: crypto.randomUUID(),
+                    id: crypto.randomUUID(),
 
-                title: firstTopic.trim(),
+                    title: firstTopic.trim(),
 
-                completed: false
+                    completed: false
 
-            }
+                }
 
-        ]
+            ]
 
-    };
+        };
 
-    this.planner.subjects.push(subject);
+        this.planner.subjects.push(subject);
 
-    this.save();
+        this.save();
 
-},
+    },
 
-addTopic(subjectId, topicTitle) {
+    /* ==========================================
+       Add Topic
+       ========================================== */
 
-    const subject = this.planner.subjects.find(function(item) {
+    addTopic(subjectId, topicTitle) {
 
-        return item.id === subjectId;
+        const subject = this.planner.subjects.find(function (item) {
 
-    });
+            return item.id === subjectId;
 
-    if (!subject) {
+        });
 
-        return;
+        if (!subject) {
+
+            return;
+
+        }
+
+        subject.topics.push({
+
+            id: crypto.randomUUID(),
+
+            title: topicTitle.trim(),
+
+            completed: false
+
+        });
+
+        this.save();
+
+    },
+
+    /* ==========================================
+       Toggle Topic
+       ========================================== */
+
+    toggleTopic(subjectId, topicId) {
+
+        const subject = this.planner.subjects.find(function (item) {
+
+            return item.id === subjectId;
+
+        });
+
+        if (!subject) {
+
+            return;
+
+        }
+
+        const topic = subject.topics.find(function (item) {
+
+            return item.id === topicId;
+
+        });
+
+        if (!topic) {
+
+            return;
+
+        }
+
+        topic.completed = !topic.completed;
+
+        subject.completed = subject.topics.every(function (item) {
+
+            return item.completed;
+
+        });
+
+        this.save();
 
     }
-
-    subject.topics.push({
-
-        id: crypto.randomUUID(),
-
-        title: topicTitle.trim(),
-
-        completed: false
-
-    });
-
-    this.save();
-
-},
-
-/* ==========================================
-   toggle topic
-   ========================================== */
-
-   toggleTopic(subjectId, topicId) {
-
-    const subject = this.planner.subjects.find(item => {
-
-        return item.id === subjectId;
-
-    });
-
-    if (!subject) return;
-
-    const topic = subject.topics.find(item => {
-
-        return item.id === topicId;
-
-    });
-
-    if (!topic) return;
-
-    topic.completed = !topic.completed;
-
-    subject.completed = subject.topics.every(item => {
-
-        return item.completed;
-
-    });
-
-    this.save();
-
-}
 
 };
