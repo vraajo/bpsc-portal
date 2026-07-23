@@ -95,6 +95,36 @@ const PlannerUI = {
     });
 
 });
+
+//add new code 
+       document
+.querySelectorAll(".deleteSubjectBtn")
+.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const ok = confirm(
+            "Delete this subject and all topics?"
+        );
+
+        if (!ok) return;
+
+        PlannerEngine.deleteSubject(
+
+            button.dataset.id
+
+        );
+
+        this.render();
+
+        showToast(
+            "Subject Deleted",
+            "success"
+        );
+
+    });
+
+});
        
 
 },
@@ -179,11 +209,23 @@ const PlannerUI = {
 
         <div class="planner-card">
 
-            <div class="planner-title">
+         <div class="planner-title">
 
-                ${subject.title}
+    <span>
 
-            </div>
+        ${subject.title}
+
+    </span>
+
+    <button
+        class="deleteSubjectBtn"
+        data-id="${subject.id}">
+
+        🗑 Subject
+
+    </button>
+
+</div>
 
             <div class="planner-topics">
 
