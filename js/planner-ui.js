@@ -153,11 +153,27 @@ const PlannerUI = {
 
                 ${subject.topics.map(topic => `
 
-                    <div class="planner-topic">
 
-                        ☐ ${topic.title}
+                 <div class="planner-topic">
 
-                    </div>
+    <label>
+
+        <input
+            type="checkbox"
+            class="topicCheckbox"
+            data-subject="${subject.id}"
+            data-topic="${topic.id}"
+            ${topic.completed ? "checked" : ""}>
+
+        <span>
+
+            ${topic.title}
+
+        </span>
+
+    </label>
+
+</div>
 
                 `).join("")}
 
