@@ -752,7 +752,7 @@ const overallProgress =
 
             <strong>${completedTopics}</strong>
 
-            <span>Completed</span>
+            <span>Topics Completed</span>
 
         </div>
 
@@ -760,7 +760,7 @@ const overallProgress =
 
             <strong>${remainingTopics}</strong>
 
-            <span>Remaining</span>
+            <span>Topics Remaining</span>
 
         </div>
 
