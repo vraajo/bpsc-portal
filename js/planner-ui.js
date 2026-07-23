@@ -101,11 +101,11 @@ const PlannerUI = {
     const planner =
         PlannerEngine.getPlanner();
 
-    if {
+    if (
     !planner ||
     !planner.subjects ||
     planner.subjects.length === 0
-       } {
+       ) {
 
         container.innerHTML = `
 
