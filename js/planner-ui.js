@@ -160,17 +160,20 @@ const PlannerUI = {
 
                  <div class="planner-topic">
 
-    <label>
+    <span>
 
-    ☐ ${topic.title}
+        ☐ ${topic.title}
 
-        <span>
+    </span>
 
-            ${topic.title}
+    <button
+        class="deleteTopicBtn"
+        data-subject="${subject.id}"
+        data-topic="${topic.id}">
 
-        </span>
+        🗑
 
-    </label>
+    </button>
 
 </div>
 
