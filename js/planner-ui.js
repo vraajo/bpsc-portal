@@ -700,7 +700,7 @@ const progress = totalTopics === 0
 
         html += `
 
-        <div class="planner-card">
+     <div class="planner-card ${progress===100 ? "planner-card-complete" : ""}">
 
     <div class="planner-card-header">
 
@@ -711,6 +711,16 @@ const progress = totalTopics === 0
             ${subject.title}
 
         </h3>
+
+        ${progress===100 ? `
+
+<div class="planner-complete-badge">
+
+    ✓ Completed
+
+</div>
+
+` : ""}
 
   <p class="planner-count">
 
