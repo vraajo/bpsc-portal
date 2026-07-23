@@ -174,9 +174,7 @@ topicButtons.forEach(button => {
 
     openSubjectModal() {
 
-        this.modalMode = "subject";
-
-    this.selectedTopicSubject = subjectId;
+    this.modalMode = "subject";
 
     const modal =
         document.getElementById("plannerModal");
@@ -196,6 +194,35 @@ topicButtons.forEach(button => {
     document.getElementById(
         "plannerTopicField"
     ).style.display = "flex";
+
+    modal.classList.remove("hidden");
+
+    document
+        .getElementById("plannerSubjectInput")
+        .focus();
+
+},
+
+   openTopicModal(subjectId) {
+
+    this.modalMode = "topic";
+
+    this.selectedTopicSubject = subjectId;
+
+    const modal =
+        document.getElementById("plannerModal");
+
+    document.getElementById(
+        "plannerModalTitle"
+    ).textContent = "Add Topic";
+
+    document.getElementById(
+        "plannerSubjectInput"
+    ).value = "";
+
+    document.getElementById(
+        "plannerTopicField"
+    ).style.display = "none";
 
     modal.classList.remove("hidden");
 
@@ -585,6 +612,7 @@ if (remove) {
     this.bindEvents();
     this.bindModal();
     this.bindSubjectMenu();
+
 
 }
 
