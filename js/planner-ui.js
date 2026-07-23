@@ -734,7 +734,7 @@ const overallProgress =
 
     <h2>
 
-        📊 Study Analytics
+        Planner Overview
 
     </h2>
 
