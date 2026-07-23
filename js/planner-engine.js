@@ -121,7 +121,23 @@ deleteTopic(subjectId, topicId) {
     this.save();
 
 },
-   
+
+   /* ==========================================
+   Delete Subject
+   ========================================== */
+
+deleteSubject(subjectId) {
+
+    this.planner.subjects =
+        this.planner.subjects.filter(function(subject) {
+
+            return subject.id !== subjectId;
+
+        });
+
+    this.save();
+
+},
 
     /* ==========================================
        Toggle Topic
