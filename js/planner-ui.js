@@ -744,15 +744,6 @@ const completedToday =
    //adding above code
 
 
-    totalTopics === 0
-
-    ? 0
-
-    : Math.round(
-
-        (completedTopics / totalTopics) * 100
-
-    );
        
        //above is new code
 
@@ -994,9 +985,9 @@ const progress = totalTopics === 0
 
     container.innerHTML = html;
 
-    this.bindEvents();
     this.bindModal();
-    this.bindSubjectMenu();
+this.bindSubjectMenu();
+this.bindEvents();
 
 
 }
