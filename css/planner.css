@@ -126,3 +126,33 @@
     margin-bottom:18px;
 
 }
+
+.subjectMenuBtn{
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:transparent;
+
+    color:#94a3b8;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.subjectMenuBtn:hover{
+
+    background:rgba(255,255,255,.06);
+
+    color:#fff;
+
+}
