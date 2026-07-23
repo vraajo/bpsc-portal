@@ -378,6 +378,24 @@ if (remove) {
 
 }
 
+      document.onclick = (event) => {
+
+    const menu =
+        document.getElementById("subjectMenu");
+
+    if (!menu) return;
+
+    if (
+        !menu.contains(event.target) &&
+        !event.target.closest(".subjectMenuBtn")
+    ) {
+
+        this.closeSubjectMenu();
+
+    }
+
+};
+
 },
 
    //render art added in second time
