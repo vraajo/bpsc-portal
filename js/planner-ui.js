@@ -61,6 +61,28 @@ const PlannerUI = {
 
     });
 
+       // Adding here new code 
+
+       document
+.querySelectorAll(".topicCheckbox")
+.forEach(box => {
+
+    box.addEventListener("change", () => {
+
+        PlannerEngine.toggleTopic(
+
+            box.dataset.subject,
+
+            box.dataset.topic
+
+        );
+
+        this.render();
+
+    });
+
+});
+
 },
 
     openSubjectModal() {
