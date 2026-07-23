@@ -119,6 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
      // Initialize Planner UI
    PlannerUI.init();
 
+   Dashboard.init();
+
     // Keep app hidden until Welcome Module allows it
     hideMainApp();
 
