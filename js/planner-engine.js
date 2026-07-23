@@ -92,6 +92,37 @@ const PlannerEngine = {
 
     },
 
+     /* ==========================================
+   Delete Topic
+   ========================================== */
+
+deleteTopic(subjectId, topicId) {
+
+    const subject = this.planner.subjects.find(function(item) {
+
+        return item.id === subjectId;
+
+    });
+
+    if (!subject) {
+
+        return;
+
+    }
+
+    subject.topics = subject.topics.filter(function(topic) {
+
+        return topic.id !== topicId;
+
+    });
+
+    subject.completed = false;
+
+    this.save();
+
+},
+   
+
     /* ==========================================
        Toggle Topic
        ========================================== */
