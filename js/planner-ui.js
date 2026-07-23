@@ -735,11 +735,11 @@ this.openConfirmModal(
 
         <span class="checkmark"></span>
 
-        <span class="topicText">
+         <span class="topicText ${topic.completed ? "completed" : ""}">
 
-            ${topic.title}
+         ${topic.title}
 
-        </span>
+         </span>
 
     </label>
 
