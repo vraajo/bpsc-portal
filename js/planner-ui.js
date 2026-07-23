@@ -6,6 +6,8 @@
 
 const PlannerUI = {
 
+    selectedSubjectId:null,
+
     init() {
 
     this.render();
@@ -160,6 +162,21 @@ const PlannerUI = {
 
 });
 
+       //Open Subject Menu 
+
+       document
+.querySelectorAll(".subjectMenuBtn")
+.forEach(button => {
+
+    button.onclick = () => {
+
+        this.openSubjectMenu(button);
+
+    };
+
+});
+       
+
 },
 
     openSubjectModal() {
@@ -185,6 +202,30 @@ const PlannerUI = {
 
     document
         .getElementById("plannerModal")
+        .classList.add("hidden");
+
+},
+
+   openSubjectMenu(button) {
+
+    const menu = document.getElementById("subjectMenu");
+
+    this.selectedSubjectId = button.dataset.id;
+
+    const rect = button.getBoundingClientRect();
+
+    menu.style.top = (rect.bottom + 8) + "px";
+
+    menu.style.left = (rect.right - 210) + "px";
+
+    menu.classList.remove("hidden");
+
+},
+
+   closeSubjectMenu() {
+
+    document
+        .getElementById("subjectMenu")
         .classList.add("hidden");
 
 },
@@ -299,6 +340,7 @@ const PlannerUI = {
         `;
 
         this.bindEvents();
+        this.bindModal();
 
         return;
 
@@ -400,6 +442,7 @@ const PlannerUI = {
     container.innerHTML = html;
 
     this.bindEvents();
+    this.bindModal();
 
 }
 
