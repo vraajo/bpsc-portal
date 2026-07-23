@@ -7,6 +7,8 @@
 const PlannerUI = {
 
     selectedSubjectId:null,
+    modalMode: "",
+    selectedTopicSubject: null,
 
     init() {
 
@@ -187,22 +189,36 @@ const PlannerUI = {
    //above is the new code 
 
 
-    openSubjectModal() {
+    openSubjectModal(subjectId) {
 
-    const modal = document.getElementById("plannerModal");
+        this.modalMode = "topic";
 
-    document.getElementById("plannerModalTitle").textContent =
-        "Add Subject";
+    this.selectedTopicSubject = subjectId;
 
-    document.getElementById("plannerSubjectInput").value = "";
+    const modal =
+        document.getElementById("plannerModal");
 
-    document.getElementById("plannerTopicInput").value = "";
+    document.getElementById(
+        "plannerModalTitle"
+    ).textContent = "Add Subject";
 
-    document.getElementById("plannerTopicField").style.display = "flex";
+    document.getElementById(
+        "plannerSubjectInput"
+    ).value = "";
+
+    document.getElementById(
+        "plannerTopicInput"
+    ).value = "";
+
+    document.getElementById(
+        "plannerTopicField"
+    ).style.display = "flex";
 
     modal.classList.remove("hidden");
 
-    document.getElementById("plannerSubjectInput").focus();
+    document
+        .getElementById("plannerSubjectInput")
+        .focus();
 
 },
 
