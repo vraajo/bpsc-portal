@@ -702,11 +702,24 @@ this.openConfirmModal(
 
                  <div class="planner-topic">
 
-    <span>
+    <label class="planner-checkbox">
 
-        ☐ ${topic.title}
+        <input
+            type="checkbox"
+            class="topicCheckbox"
+            data-subject="${subject.id}"
+            data-topic="${topic.id}"
+            ${topic.completed ? "checked" : ""}>
 
-    </span>
+        <span class="checkmark"></span>
+
+        <span class="topicText">
+
+            ${topic.title}
+
+        </span>
+
+    </label>
 
     <button
         class="deleteTopicBtn"
