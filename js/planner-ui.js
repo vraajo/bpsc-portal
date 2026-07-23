@@ -232,6 +232,35 @@ topicButtons.forEach(button => {
 
 },
 
+   openRenameModal(subjectId, currentTitle) {
+
+    this.modalMode = "rename";
+
+    this.selectedSubjectId = subjectId;
+
+    const modal =
+        document.getElementById("plannerModal");
+
+    document.getElementById(
+        "plannerModalTitle"
+    ).textContent = "Rename Subject";
+
+    document.getElementById(
+        "plannerSubjectInput"
+    ).value = currentTitle;
+
+    document.getElementById(
+        "plannerTopicField"
+    ).style.display = "none";
+
+    modal.classList.remove("hidden");
+
+    document
+        .getElementById("plannerSubjectInput")
+        .focus();
+
+},
+
    closeModal() {
 
     document
@@ -370,6 +399,45 @@ if (save) {
 
         }
 
+       if (this.modalMode === "rename") {
+
+    const title = document
+        .getElementById("plannerSubjectInput")
+        .value
+        .trim();
+
+    if (!title) {
+
+        showToast(
+            "Enter subject name",
+            "warning"
+        );
+
+        return;
+
+    }
+
+    PlannerEngine.editSubject(
+
+        this.selectedSubjectId,
+
+        title
+
+    );
+
+    this.closeModal();
+
+    this.render();
+
+    showToast(
+        "Subject Updated",
+        "success"
+    );
+
+    return;
+
+}
+
     };
 
 }
@@ -388,30 +456,29 @@ if (save) {
 
         rename.onclick = () => {
 
-            this.closeSubjectMenu();
+    this.closeSubjectMenu();
 
-            const title = prompt(
-                "Rename Subject"
-            );
+    const planner =
+        PlannerEngine.getPlanner();
 
-            if (!title) return;
+    const subject =
+        planner.subjects.find(item => {
 
-            PlannerEngine.editSubject(
+            return item.id === this.selectedSubjectId;
 
-                this.selectedSubjectId,
+        });
 
-                title
+    if (!subject) return;
 
-            );
+    this.openRenameModal(
 
-            this.render();
+        subject.id,
 
-            showToast(
-                "Subject Updated",
-                "success"
-            );
+        subject.title
 
-        };
+    );
+
+};
 
     }
 
