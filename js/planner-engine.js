@@ -116,6 +116,6 @@ addTopic(subjectId, topicTitle) {
 
     this.save();
 
-},
+}
 
 };
