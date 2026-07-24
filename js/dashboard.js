@@ -156,4 +156,64 @@ const Dashboard = {
 
 }
 
+
+   renderStats() {
+
+    const container =
+        document.getElementById("dashboardStats");
+
+    if (!container) return;
+
+    if (typeof PlannerEngine === "undefined") return;
+
+    const stats = PlannerEngine.getStatistics();
+
+    container.innerHTML = `
+
+<div class="dashboardStatsCard">
+
+<h3>Today's Progress</h3>
+
+<div class="dashboardStatsGrid">
+
+<div class="dashboardStat">
+
+<div class="statValue">${stats.completedToday}</div>
+
+<div class="statLabel">Today</div>
+
+</div>
+
+<div class="dashboardStat">
+
+<div class="statValue">${stats.overallProgress}%</div>
+
+<div class="statLabel">Overall</div>
+
+</div>
+
+<div class="dashboardStat">
+
+<div class="statValue">${stats.totalSubjects}</div>
+
+<div class="statLabel">Subjects</div>
+
+</div>
+
+<div class="dashboardStat">
+
+<div class="statValue">${stats.remainingTopics}</div>
+
+<div class="statLabel">Remaining</div>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
 };
