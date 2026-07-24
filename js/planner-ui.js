@@ -63,8 +63,6 @@ topicButtons.forEach(button => {
 
         event.stopPropagation();
 
-        alert("Delete button clicked");
-
         this.confirmSubjectId = button.dataset.subject;
 
         this.confirmTopicId = button.dataset.topic;
@@ -520,12 +518,6 @@ if (confirmOk) {
         }
 
         if (this.confirmAction === "deleteTopic") {
-
-    alert(
-        this.confirmSubjectId +
-        "\n" +
-        this.confirmTopicId
-    );
 
     PlannerEngine.deleteTopic(
         this.confirmSubjectId,
