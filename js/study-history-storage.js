@@ -40,7 +40,7 @@ const StudyHistoryStorage = {
 
         Storage.save(this.KEY, data);
 
-    }
+    },
 
    add(planner) {
 
