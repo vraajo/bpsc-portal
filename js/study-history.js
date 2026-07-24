@@ -181,21 +181,48 @@ const StudyHistory = {
     }
 
     let html = "";
+    let currentMonth = "";
 
     history.records.forEach(record => {
 
         const date = new Date(record.archivedAt);
 
-        const formattedDate = date.toLocaleDateString(undefined, {
-            weekday: "long",
-            day: "numeric",
+        const monthName = date.toLocaleDateString(undefined, {
+
             month: "long",
             year: "numeric"
+
         });
 
-        const formattedTime = date.toLocaleTimeString([], {
+        if (monthName !== currentMonth) {
+
+            currentMonth = monthName;
+
+            html += `
+
+                <div class="history-month-header">
+
+                    ${monthName}
+
+                </div>
+
+            `;
+
+        }
+
+        const displayDate = date.toLocaleDateString(undefined, {
+
+            weekday: "short",
+            day: "numeric",
+            month: "short"
+
+        });
+
+        const displayTime = date.toLocaleTimeString([], {
+
             hour: "2-digit",
             minute: "2-digit"
+
         });
 
         html += `
@@ -206,36 +233,17 @@ const StudyHistory = {
 
                     <div>
 
-                        <h3>${formattedDate}</h3>
+                        <h3>${displayDate}</h3>
 
-                        <small>${formattedTime}</small>
+                        <small>${displayTime}</small>
 
                     </div>
 
                     <button
                         class="history-menu-btn"
-                        data-id="${record.id}"
-                    >
+                        data-id="${record.id}">
                         ⋮
                     </button>
-
-                </div>
-
-                <div class="history-record-body">
-
-                    <p>
-
-                        <strong>Subjects:</strong>
-                        ${record.subjects ? record.subjects.length : 0}
-
-                    </p>
-
-                    <p>
-
-                        <strong>Completed Topics:</strong>
-                        ${record.completedTopics || 0}
-
-                    </p>
 
                 </div>
 
@@ -247,7 +255,7 @@ const StudyHistory = {
 
     recordsContainer.innerHTML = html;
 
-}
+},
 
 };
 
