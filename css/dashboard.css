@@ -1,0 +1,75 @@
+.dashboardHeroCard{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:24px;
+
+margin:16px 0;
+
+border-radius:24px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.heroLeft h2{
+
+margin:0;
+font-size:1.7rem;
+
+}
+
+.heroLeft p{
+
+margin:10px 0 6px;
+
+opacity:.9;
+
+}
+
+.heroLeft small{
+
+opacity:.75;
+
+}
+
+.countdownCircle{
+
+width:120px;
+height:120px;
+
+border-radius:50%;
+
+border:8px solid #5b8cff;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.countdownNumber{
+
+font-size:2rem;
+
+font-weight:700;
+
+}
+
+.countdownLabel{
+
+font-size:.8rem;
+
+opacity:.8;
+
+}
