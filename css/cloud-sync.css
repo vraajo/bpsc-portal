@@ -1,110 +1,365 @@
-/* ===========================
-   CLOUD SYNC PAGE
-=========================== */
+/* =====================================================
+   CLOUD SYNC PAGE - PREMIUM DARK UI
+===================================================== */
 
-.sync-card{
-    background:#1f2638;
+.syncCard{
+
+    background:linear-gradient(180deg,#1d2538,#182031);
+
     border:1px solid rgba(255,255,255,.08);
-    border-radius:20px;
+
+    border-radius:22px;
+
     padding:22px;
+
     margin:20px 0;
+
+    box-shadow:0 14px 35px rgba(0,0,0,.22);
+
 }
 
-.sync-header{
+/* =========================
+   STATUS
+========================= */
+
+.syncStatus{
+
     display:flex;
+
     align-items:center;
-    gap:16px;
+
+    gap:18px;
+
+    padding-bottom:20px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
 }
 
-.sync-icon{
-    width:58px;
-    height:58px;
+.statusIcon{
+
+    width:64px;
+
+    height:64px;
+
     border-radius:50%;
-    background:#2b3448;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-    font-size:28px;
+
+    font-size:30px;
+
+    background:rgba(34,197,94,.15);
+
+    border:1px solid rgba(34,197,94,.35);
+
+    box-shadow:0 0 22px rgba(34,197,94,.18);
+
+    flex-shrink:0;
+
 }
 
-.sync-title h3{
+.statusInfo h3{
+
     margin:0;
-    color:#fff;
-    font-size:20px;
+
+    font-size:22px;
+
+    color:#ffffff;
+
+    font-weight:700;
+
 }
 
-.sync-title p{
-    margin:4px 0 0;
-    color:#9aa5b5;
+.statusInfo p{
+
+    margin-top:6px;
+
+    color:#9ea8bb;
+
     font-size:14px;
+
 }
 
-.sync-info{
-    margin-top:24px;
-}
+/* =========================
+   STORAGE
+========================= */
 
-.sync-row{
-    display:flex;
-    justify-content:space-between;
-    padding:14px 0;
-    border-bottom:1px solid rgba(255,255,255,.06);
-}
+.syncStorage{
 
-.sync-row:last-child{
-    border-bottom:none;
-}
+    margin-top:20px;
 
-.sync-label{
-    color:#9aa5b5;
-}
+    background:rgba(255,255,255,.04);
 
-.sync-value{
-    color:#fff;
-    font-weight:600;
-}
+    border:1px solid rgba(255,255,255,.06);
 
-.sync-buttons{
-    display:grid;
-    gap:14px;
-    margin-top:24px;
-}
-
-.sync-btn{
-    border:none;
-    border-radius:14px;
-    padding:15px;
-    font-size:16px;
-    font-weight:600;
-    cursor:pointer;
-}
-
-.sync-now{
-    background:#2563eb;
-    color:#fff;
-}
-
-.restore-btn{
-    background:#2b3448;
-    color:#fff;
-}
-
-.auto-sync{
-    margin-top:24px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:#252d40;
-    padding:16px;
     border-radius:16px;
+
+    padding:18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
 }
 
-.auto-sync h4{
-    margin:0;
+.syncStorage span{
+
+    color:#9ea8bb;
+
+    font-size:14px;
+
+}
+
+.syncStorage strong{
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.syncActions{
+
+    display:grid;
+
+    gap:14px;
+
+    margin:24px 0;
+
+}
+
+.syncActions button{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:16px;
+
+    padding:16px;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
+}
+
+/* Sync Button */
+
+.primary-btn{
+
     color:#fff;
+
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+
+    box-shadow:0 10px 24px rgba(37,99,235,.30);
+
 }
 
-.auto-sync p{
-    margin:4px 0 0;
-    color:#9aa5b5;
-    font-size:13px;
+.primary-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 18px 32px rgba(37,99,235,.38);
+
+}
+
+/* Restore Button */
+
+.secondary-btn{
+
+    color:#ffffff;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.secondary-btn:hover{
+
+    background:rgba(255,255,255,.10);
+
+    transform:translateY(-2px);
+
+}
+
+/* =========================
+   AUTO SYNC
+========================= */
+
+.syncOption{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:18px;
+
+    background:linear-gradient(180deg,#1d2538,#182031);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:20px;
+
+    box-shadow:0 10px 28px rgba(0,0,0,.18);
+
+}
+
+.syncOption strong{
+
+    display:block;
+
+    color:#ffffff;
+
+    font-size:17px;
+
+    margin-bottom:6px;
+
+}
+
+.syncOption p{
+
+    margin:0;
+
+    color:#9ea8bb;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+}
+
+/* =========================
+   SWITCH
+========================= */
+
+.switch{
+
+    position:relative;
+
+    display:inline-block;
+
+    width:56px;
+
+    height:30px;
+
+    flex-shrink:0;
+
+}
+
+.switch input{
+
+    opacity:0;
+
+    width:0;
+
+    height:0;
+
+}
+
+.slider{
+
+    position:absolute;
+
+    inset:0;
+
+    cursor:pointer;
+
+    background:#4b5563;
+
+    border-radius:50px;
+
+    transition:.25s;
+
+}
+
+.slider:before{
+
+    content:"";
+
+    position:absolute;
+
+    width:24px;
+
+    height:24px;
+
+    left:3px;
+
+    bottom:3px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    transition:.25s;
+
+}
+
+.switch input:checked + .slider{
+
+    background:#22c55e;
+
+}
+
+.switch input:checked + .slider:before{
+
+    transform:translateX(26px);
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .syncStatus{
+
+        align-items:flex-start;
+
+    }
+
+    .statusIcon{
+
+        width:56px;
+
+        height:56px;
+
+        font-size:26px;
+
+    }
+
+    .statusInfo h3{
+
+        font-size:20px;
+
+    }
+
+    .syncOption{
+
+        gap:14px;
+
+    }
+
 }
