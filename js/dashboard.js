@@ -18,6 +18,7 @@ const Dashboard = {
 
     this.renderStats();
       this.renderQuickActions();
+      this.renderRecentActivity();
 
 },
 
@@ -267,6 +268,49 @@ const Dashboard = {
             <span>Cloud</span>
 
         </button>
+
+    </div>
+
+</div>
+
+`;
+
+},
+
+   renderRecentActivity() {
+
+    const container =
+        document.getElementById(
+            "dashboardRecentActivity"
+        );
+
+    if (!container) return;
+
+    container.innerHTML = `
+
+<div class="dashboardActivityCard">
+
+    <h3>
+
+        Recent Activity
+
+    </h3>
+
+    <div class="activityItem">
+
+        ✅ Welcome back to BPSC Portal
+
+    </div>
+
+    <div class="activityItem">
+
+        📚 Planner Loaded Successfully
+
+    </div>
+
+    <div class="activityItem">
+
+        ☁ Cloud Sync Ready
 
     </div>
 
