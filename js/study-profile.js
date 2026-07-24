@@ -127,8 +127,11 @@ function collectProfile() {
         accentColor:
             $("accentColor")?.value || "#2563eb",
 
-        updatedAt:
-            Date.now()
+        startDate:
+    loadLocalProfile()?.startDate || Date.now(),
+
+updatedAt:
+    Date.now()
 
     };
 
