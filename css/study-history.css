@@ -119,3 +119,141 @@
     margin:auto;
     line-height:1.6;
 }
+
+
+/* ==========================================
+   ACTION SHEET
+========================================== */
+
+.history-sheet-backdrop{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(3px);
+
+    z-index:9998;
+
+    animation:fadeIn .25s;
+}
+
+.history-sheet{
+
+    position:fixed;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    background:#1e293b;
+
+    border-radius:24px 24px 0 0;
+
+    padding:16px;
+
+    z-index:9999;
+
+    animation:sheetUp .28s ease;
+
+    box-shadow:0 -8px 30px rgba(0,0,0,.45);
+
+}
+
+.history-sheet-title{
+
+    text-align:center;
+
+    font-size:16px;
+
+    color:#94a3b8;
+
+    margin-bottom:12px;
+
+}
+
+.history-sheet-btn{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    background:none;
+
+    border:none;
+
+    color:#fff;
+
+    font-size:16px;
+
+    padding:16px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.history-sheet-btn:hover{
+
+    background:#334155;
+
+}
+
+.delete-btn{
+
+    color:#ef4444;
+
+}
+
+.cancel-btn{
+
+    justify-content:center;
+
+    margin-top:10px;
+
+    background:#334155;
+
+}
+
+@keyframes sheetUp{
+
+    from{
+
+        transform:translateY(100%);
+
+    }
+
+    to{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
