@@ -65,12 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
        // upper is the cloud sync function
 
        // Study History
-if (
-    pageId === "studyHistoryPage" &&
-    typeof StudyHistory !== "undefined"
-) {
-    StudyHistory.render();
-}
+
 
        //above is study history
 
