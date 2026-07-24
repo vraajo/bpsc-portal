@@ -75,6 +75,15 @@ document.addEventListener("DOMContentLoaded", () => {
             currentPage.classList.remove("hidden");
         }
 
+       if (
+    pageId === "homePage" &&
+    typeof Dashboard !== "undefined"
+) {
+
+    Dashboard.refreshTodayProgress();
+
+}
+
        // Dashboard Refresh
 if (
     pageId === "dashboardPage" &&
