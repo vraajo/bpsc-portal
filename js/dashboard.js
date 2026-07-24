@@ -303,7 +303,7 @@ renderLifetimeStatistics() {
 
     <div class="dashboardLifetimeGrid">
 
-        <div class="dashboardLifetimeItem">
+        <div class="dashboardLifetimeItem lifetime-blue">
 
             <div class="lifeValue">
 
@@ -319,7 +319,7 @@ renderLifetimeStatistics() {
 
         </div>
 
-        <div class="dashboardLifetimeItem">
+        <div class="dashboardLifetimeItem lifetime-green">
 
             <div class="lifeValue">
 
@@ -335,7 +335,7 @@ renderLifetimeStatistics() {
 
         </div>
 
-        <div class="dashboardLifetimeItem">
+        <div class="dashboardLifetimeItem lifetime-orange">
 
             <div class="lifeValue">
 
@@ -351,7 +351,7 @@ renderLifetimeStatistics() {
 
         </div>
 
-        <div class="dashboardLifetimeItem">
+        <div class="dashboardLifetimeItem lifetime-purple">
 
             <div class="lifeValue">
 
