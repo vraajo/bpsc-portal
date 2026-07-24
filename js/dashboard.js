@@ -289,45 +289,81 @@ if (ring) {
 
     container.innerHTML = `
 
-<div class="dashboardStatsCard">
+<div class="dashboardLifetimeCard">
 
-<h3>Today's Progress</h3>
+    <h3>
 
-<div class="dashboardStatsGrid">
+        📊 Lifetime Statistics
 
-<div class="dashboardStat">
+    </h3>
 
-<div class="statValue">${stats.completedToday}</div>
+    <div class="dashboardLifetimeGrid">
 
-<div class="statLabel">Today</div>
+        <div class="dashboardLifetimeItem">
 
-</div>
+            <div class="lifeValue">
 
-<div class="dashboardStat">
+                ${stats.totalSubjects}
 
-<div class="statValue">${stats.overallProgress}%</div>
+            </div>
 
-<div class="statLabel">Overall</div>
+            <div class="lifeLabel">
 
-</div>
+                Subjects
 
-<div class="dashboardStat">
+            </div>
 
-<div class="statValue">${stats.totalSubjects}</div>
+        </div>
 
-<div class="statLabel">Subjects</div>
+        <div class="dashboardLifetimeItem">
 
-</div>
+            <div class="lifeValue">
 
-<div class="dashboardStat">
+                ${stats.completedTopics}
 
-<div class="statValue">${stats.remainingTopics}</div>
+            </div>
 
-<div class="statLabel">Remaining</div>
+            <div class="lifeLabel">
 
-</div>
+                Completed Topics
 
-</div>
+            </div>
+
+        </div>
+
+        <div class="dashboardLifetimeItem">
+
+            <div class="lifeValue">
+
+                ${stats.studyDays}
+
+            </div>
+
+            <div class="lifeLabel">
+
+                Study Days
+
+            </div>
+
+        </div>
+
+        <div class="dashboardLifetimeItem">
+
+            <div class="lifeValue">
+
+                ${stats.studyHours}h
+
+            </div>
+
+            <div class="lifeLabel">
+
+                Study Hours
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
