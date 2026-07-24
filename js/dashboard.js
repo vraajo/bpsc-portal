@@ -32,6 +32,8 @@ const Dashboard = {
     this.renderStats("homeTodayProgress");
       this.renderQuickActions();
       this.renderRecentActivity();
+      this.renderLifetimeStatistics();
+      this.renderStudyJourney();
       
 
 },
@@ -274,6 +276,201 @@ if (ring) {
 }
 
 },
+
+   // Render Lifetime statistics function
+
+renderLifetimeStatistics() {
+
+    const container =
+        document.getElementById(
+            "dashboardLifetimeStatistics"
+        );
+
+    if (!container) return;
+
+    const stats =
+        PlannerEngine.getStatistics();
+
+    container.innerHTML = `
+
+<div class="dashboardLifetimeCard">
+
+    <h3>
+
+        📊 Lifetime Statistics
+
+    </h3>
+
+    <div class="dashboardLifetimeGrid">
+
+        <div class="dashboardLifetimeItem">
+
+            <div class="lifeValue">
+
+                ${stats.totalSubjects}
+
+            </div>
+
+            <div class="lifeLabel">
+
+                Subjects
+
+            </div>
+
+        </div>
+
+        <div class="dashboardLifetimeItem">
+
+            <div class="lifeValue">
+
+                ${stats.completedTopics}
+
+            </div>
+
+            <div class="lifeLabel">
+
+                Completed Topics
+
+            </div>
+
+        </div>
+
+        <div class="dashboardLifetimeItem">
+
+            <div class="lifeValue">
+
+                ${stats.studyDays}
+
+            </div>
+
+            <div class="lifeLabel">
+
+                Study Days
+
+            </div>
+
+        </div>
+
+        <div class="dashboardLifetimeItem">
+
+            <div class="lifeValue">
+
+                ${stats.studyHours}h
+
+            </div>
+
+            <div class="lifeLabel">
+
+                Study Hours
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+`;
+
+},
+   
+   // Above is the new render function
+   // render study journey function
+
+   renderStudyJourney() {
+
+    const container =
+        document.getElementById(
+            "dashboardStudyJourney"
+        );
+
+    if (!container) return;
+
+    const stats =
+        PlannerEngine.getStatistics();
+
+    container.innerHTML = `
+
+<div class="dashboardJourneyCard">
+
+    <h3>
+
+        🔥 Study Journey
+
+    </h3>
+
+    <div class="journeyRow">
+
+        <span>
+
+            Current Streak
+
+        </span>
+
+        <strong>
+
+            ${stats.currentStreak} Days
+
+        </strong>
+
+    </div>
+
+    <div class="journeyRow">
+
+        <span>
+
+            Preparation Started
+
+        </span>
+
+        <strong>
+
+            ${stats.preparationStarted || "--"}
+
+        </strong>
+
+    </div>
+
+    <div class="journeyRow">
+
+        <span>
+
+            Days Preparing
+
+        </span>
+
+        <strong>
+
+            ${stats.daysPreparing}
+
+        </strong>
+
+    </div>
+
+    <div class="journeyRow">
+
+        <span>
+
+            Last Study
+
+        </span>
+
+        <strong>
+
+            ${stats.lastStudy || "--"}
+
+        </strong>
+
+    </div>
+
+</div>
+
+`;
+
+},
+
+   //above new function 
 
 
    renderStats(containerId = "dashboardStats") {
