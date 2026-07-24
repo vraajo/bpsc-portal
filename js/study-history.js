@@ -279,23 +279,75 @@ const StudyHistory = {
 
     showRecordMenu(recordId) {
 
-    const action = prompt(
-`Study History
+    const oldSheet = document.getElementById("historyActionSheet");
 
-1 = View Details
+    if (oldSheet) {
 
-2 = Delete Record`
-    );
+        oldSheet.remove();
 
-    if (action === "1") {
+    }
+
+    const sheet = document.createElement("div");
+
+    sheet.id = "historyActionSheet";
+
+    sheet.innerHTML = `
+
+        <div class="history-sheet-backdrop"></div>
+
+        <div class="history-sheet">
+
+            <button class="history-sheet-btn view-btn">
+
+                👁 View Details
+
+            </button>
+
+            <button class="history-sheet-btn delete-btn">
+
+                🗑 Delete Record
+
+            </button>
+
+            <button class="history-sheet-btn cancel-btn">
+
+                ✖ Cancel
+
+            </button>
+
+        </div>
+
+    `;
+
+    document.body.appendChild(sheet);
+
+    sheet.querySelector(".view-btn").addEventListener("click", () => {
+
+        sheet.remove();
 
         this.viewRecord(recordId);
 
-    } else if (action === "2") {
+    });
+
+    sheet.querySelector(".delete-btn").addEventListener("click", () => {
+
+        sheet.remove();
 
         this.deleteRecord(recordId);
 
-    }
+    });
+
+    sheet.querySelector(".cancel-btn").addEventListener("click", () => {
+
+        sheet.remove();
+
+    });
+
+    sheet.querySelector(".history-sheet-backdrop").addEventListener("click", () => {
+
+        sheet.remove();
+
+    });
 
 },
 
