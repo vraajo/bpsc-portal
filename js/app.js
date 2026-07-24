@@ -75,14 +75,14 @@ document.addEventListener("DOMContentLoaded", () => {
             currentPage.classList.remove("hidden");
         }
 
-       if (
+   /*    if (
     pageId === "homePage" &&
     typeof Dashboard !== "undefined"
 ) {
 
     Dashboard.refreshTodayProgress();
 
-}
+} */
 
        // Dashboard Refresh
 if (
