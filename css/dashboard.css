@@ -41,12 +41,63 @@ opacity:.75;
 
 .countdownCircle{
 
-width:120px;
-height:120px;
+position:relative;
 
-border-radius:50%;
+width:140px;
 
-border:8px solid #5b8cff;
+height:140px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.countdownSvg{
+
+position:absolute;
+
+width:140px;
+
+height:140px;
+
+transform:rotate(-90deg);
+
+}
+
+.countdownBg{
+
+fill:none;
+
+stroke:rgba(255,255,255,.12);
+
+stroke-width:8;
+
+}
+
+.countdownProgress{
+
+fill:none;
+
+stroke:#5b8cff;
+
+stroke-width:8;
+
+stroke-linecap:round;
+
+stroke-dasharray:327;
+
+stroke-dashoffset:82;
+
+transition:stroke-dashoffset .8s ease;
+
+}
+
+.countdownContent{
+
+position:absolute;
 
 display:flex;
 
