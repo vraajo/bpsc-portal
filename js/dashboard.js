@@ -16,8 +16,8 @@ const Dashboard = {
 
     this.renderHero();
 
-    this.renderStats();
-    this.renderStats("homeTodayProgress");
+  //  this.renderStats();
+    this.renderTodayProgress("homeTodayProgress");
       this.renderQuickActions();
       this.renderRecentActivity();
       
@@ -264,7 +264,7 @@ if (ring) {
 },
 
 
-   renderStats(containerId = "dashboardStats") {
+   renderTodayProgress (containerId = "dashboardStats") {
 
     const container =
     document.getElementById(containerId);
