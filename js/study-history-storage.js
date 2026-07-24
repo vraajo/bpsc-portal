@@ -48,7 +48,7 @@ const StudyHistoryStorage = {
 
         return false;
 
-    }
+    },
 
     const data = this.load();
 
