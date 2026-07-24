@@ -200,3 +200,35 @@ font-size:.9rem;
 font-weight:600;
 
 }
+
+.dashboardActivityCard{
+
+margin-top:20px;
+
+padding:22px;
+
+border-radius:22px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.activityItem{
+
+padding:14px 0;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+font-size:.95rem;
+
+}
+
+.activityItem:last-child{
+
+border-bottom:none;
+
+}
