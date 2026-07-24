@@ -143,6 +143,10 @@ if (
 
     Dashboard.init();
 
+   if (typeof StudyHistory !== "undefined") {
+    StudyHistory.init();
+}
+
 
     // Keep app hidden until Welcome Module allows it
     hideMainApp();
