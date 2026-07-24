@@ -1,0 +1,121 @@
+/* ==========================================
+   STUDY HISTORY
+========================================== */
+
+.history-card{
+    background:#1e293b;
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+.history-stats-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.history-stat{
+    text-align:center;
+}
+
+.history-stat h2{
+    margin:0;
+    font-size:28px;
+    color:#3b82f6;
+    font-weight:700;
+}
+
+.history-stat span{
+    display:block;
+    margin-top:6px;
+    color:#94a3b8;
+    font-size:13px;
+}
+
+.history-search-wrapper{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.history-input{
+    flex:1;
+    min-width:150px;
+    background:#0f172a;
+    border:1px solid #334155;
+    border-radius:12px;
+    color:#fff;
+    padding:12px 14px;
+    font-size:15px;
+    outline:none;
+}
+
+.history-input:focus{
+    border-color:#3b82f6;
+}
+
+.history-month-header{
+    color:#60a5fa;
+    font-size:18px;
+    font-weight:700;
+    margin:25px 6px 12px;
+}
+
+.history-record{
+    transition:.25s;
+    cursor:pointer;
+}
+
+.history-record:hover{
+    transform:translateY(-2px);
+}
+
+.history-record-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.history-record-header h3{
+    margin:0;
+    color:#fff;
+    font-size:18px;
+}
+
+.history-record-header small{
+    color:#94a3b8;
+}
+
+.history-menu-btn{
+    background:none;
+    border:none;
+    color:#cbd5e1;
+    font-size:24px;
+    cursor:pointer;
+}
+
+
+.history-empty{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.history-empty-icon{
+    font-size:60px;
+    margin-bottom:18px;
+}
+
+.history-empty h3{
+    color:#fff;
+    margin-bottom:10px;
+}
+
+.history-empty p{
+    color:#94a3b8;
+    max-width:400px;
+    margin:auto;
+    line-height:1.6;
+}
