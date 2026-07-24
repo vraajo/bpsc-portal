@@ -201,6 +201,7 @@ if (examDate && typeof daysLeft === "number") {
 
 `;
 
+       console.log("Days:", daysLeft, "Progress:", progress);
        const ring = container.querySelector(".countdownProgress");
 
 if (ring) {
