@@ -57,6 +57,14 @@ const StudyHistory = {
 
 `;
 
+        const button = document.getElementById("historyTestButton");
+
+button.addEventListener("click", () => {
+
+    this.createTestRecord();
+
+});
+
     },
 
     renderPage(container, history) {
@@ -361,6 +369,68 @@ const StudyHistory = {
     viewRecord(recordId) {
 
     console.log("View Record:", recordId);
+
+},
+
+    createTestRecord() {
+
+    const planner = {
+
+        date: new Date().toISOString(),
+
+        subjects: [
+
+            {
+
+                name: "History",
+
+                topics: [
+
+                    {
+
+                        title: "Mauryan Empire",
+
+                        completed: true
+
+                    },
+
+                    {
+
+                        title: "Gupta Empire",
+
+                        completed: false
+
+                    }
+
+                ]
+
+            },
+
+            {
+
+                name: "Polity",
+
+                topics: [
+
+                    {
+
+                        title: "Preamble",
+
+                        completed: true
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    };
+
+    StudyHistoryStorage.add(planner);
+
+    this.render();
 
 },
 
