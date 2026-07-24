@@ -700,17 +700,6 @@ finishToday() {
     planner.subjects.length === 0
        ) {
 
-       html += `
-
-<button
-    class="primary-btn"
-    id="finishTodayBtn">
-
-    ✓ Finish Today
-
-</button>
-
-`;
        
         container.innerHTML = `
 
@@ -1045,6 +1034,18 @@ const progress = totalTopics === 0
     </button>
 
     `;
+
+       html += `
+
+<button
+    class="primary-btn"
+    id="finishTodayBtn">
+
+    ✓ Finish Today
+
+</button>
+
+`;
 
     container.innerHTML = html;
 
