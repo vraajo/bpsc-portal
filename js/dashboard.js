@@ -70,6 +70,21 @@ const Dashboard = {
     let daysLeft = "--";
     let status = "Set Exam Date";
 
+    let progress = 0;
+
+if (examDate && typeof daysLeft === "number") {
+
+    // 365-day countdown scale
+    progress = Math.max(
+        0,
+        Math.min(
+            100,
+            ((365 - daysLeft) / 365) * 100
+        )
+    );
+
+}
+
     if (examDate) {
 
         const today = new Date();
