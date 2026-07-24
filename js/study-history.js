@@ -34,21 +34,28 @@ const StudyHistory = {
 
         container.innerHTML = `
 
-            <div class="history-empty">
+    <div class="history-empty">
 
-                <div class="history-empty-icon">📖</div>
+        <div class="history-empty-icon">📖</div>
 
-                <h3>No Study History</h3>
+        <h3>No Study History</h3>
 
-                <p>
-                    Complete today's planner and press
-                    <strong>Finish Today</strong>
-                    to archive your first study session.
-                </p>
+        <p>
+            Complete today's planner and press
+            <strong>Finish Today</strong>
+            to archive your first study session.
+        </p>
 
-            </div>
+        <button
+            id="historyTestButton"
+            class="btn"
+            style="margin-top:20px;">
+            Create Test Record
+        </button>
 
-        `;
+    </div>
+
+`;
 
     },
 
