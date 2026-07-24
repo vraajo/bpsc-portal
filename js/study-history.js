@@ -18,7 +18,7 @@ const StudyHistory = {
 
         const history = StudyHistoryStorage.load();
 
-        if (!history || !history.records || history.records.length === 0) {
+        if (!history || !history.history || history.history.length === 0) {
 
             this.renderEmpty(container);
 
@@ -172,7 +172,7 @@ const StudyHistory = {
 
     if (!recordsContainer) return;
 
-    if (!history.records || history.records.length === 0) {
+    if (!history.history || history.history.length === 0) {
 
         recordsContainer.innerHTML = "";
 
@@ -183,7 +183,7 @@ const StudyHistory = {
     let html = "";
     let currentMonth = "";
 
-    history.records.forEach(record => {
+    history.history.forEach(record => {
 
         const date = new Date(record.archivedAt);
 
