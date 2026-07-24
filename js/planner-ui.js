@@ -649,12 +649,39 @@ finishToday() {
 
     const planner = PlannerEngine.getPlanner();
 
-    if (!planner.subjects.length) {
+    if (!planner || planner.subjects.length === 0) {
 
         showToast(
-            "No study plan to archive.",
+            "No study plan available.",
             "warning"
         );
+
+        return;
+
+    }
+
+    const hasCompletedTopic = planner.subjects.some(subject =>
+
+        subject.topics.some(topic => topic.completed)
+
+    );
+
+    if (!hasCompletedTopic) {
+
+        showToast(
+            "Complete at least one topic before finishing today.",
+            "warning"
+        );
+
+        return;
+
+    }
+
+    const ok = confirm(
+        "Archive today's study and clear the planner?"
+    );
+
+    if (!ok) {
 
         return;
 
