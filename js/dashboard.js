@@ -134,21 +134,43 @@ const Dashboard = {
 
     <div class="heroRight">
 
-        <div class="countdownCircle">
+    <div class="countdownCircle">
 
-            <div class="countdownNumber">
+    <svg class="countdownSvg" viewBox="0 0 120 120">
 
-                ${daysLeft}
+        <circle
+            class="countdownBg"
+            cx="60"
+            cy="60"
+            r="52">
+        </circle>
 
-            </div>
+        <circle
+            class="countdownProgress"
+            cx="60"
+            cy="60"
+            r="52">
+        </circle>
 
-            <div class="countdownLabel">
+    </svg>
 
-                ${status}
+    <div class="countdownContent">
 
-            </div>
+        <div class="countdownNumber">
+
+            ${daysLeft}
 
         </div>
+
+        <div class="countdownLabel">
+
+            ${status}
+
+        </div>
+
+    </div>
+
+</div>
 
     </div>
 
