@@ -74,21 +74,180 @@ const StudyHistory = {
 
     renderStats(history) {
 
-        // Next step
+    const stats = document.getElementById("historyStats");
 
-    },
+    if (!stats) return;
+
+    const summary = StudyHistoryStorage.getStatistics();
+
+    stats.innerHTML = `
+
+        <div class="history-card">
+
+            <div class="history-stats-grid">
+
+                <div class="history-stat">
+
+                    <h2>${summary.totalDays}</h2>
+
+                    <span>Study Days</span>
+
+                </div>
+
+                <div class="history-stat">
+
+                    <h2>${summary.completedTopics}</h2>
+
+                    <span>Completed Topics</span>
+
+                </div>
+
+                <div class="history-stat">
+
+                    <h2>${summary.totalSubjects}</h2>
+
+                    <span>Subjects</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+},
 
     renderSearch() {
 
-        // Next step
+    const search = document.getElementById("historySearch");
 
-    },
+    if (!search) return;
+
+    search.innerHTML = `
+
+        <div class="history-card">
+
+            <div class="history-search-wrapper">
+
+                <input
+                    type="text"
+                    id="historySearchInput"
+                    class="history-input"
+                    placeholder="Search subjects or topics..."
+                >
+
+                <input
+                    type="date"
+                    id="historyDateFilter"
+                    class="history-input"
+                >
+
+            </div>
+
+        </div>
+
+    `;
+
+    const searchInput = document.getElementById("historySearchInput");
+    const dateFilter = document.getElementById("historyDateFilter");
+
+    searchInput.addEventListener("input", () => {
+
+        this.render();
+
+    });
+
+    dateFilter.addEventListener("change", () => {
+
+        this.render();
+
+    });
+
+},
 
     renderRecords(history) {
 
-        // Next step
+    const recordsContainer = document.getElementById("historyRecords");
+
+    if (!recordsContainer) return;
+
+    if (!history.records || history.records.length === 0) {
+
+        recordsContainer.innerHTML = "";
+
+        return;
 
     }
+
+    let html = "";
+
+    history.records.forEach(record => {
+
+        const date = new Date(record.archivedAt);
+
+        const formattedDate = date.toLocaleDateString(undefined, {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        });
+
+        const formattedTime = date.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit"
+        });
+
+        html += `
+
+            <div class="history-card history-record">
+
+                <div class="history-record-header">
+
+                    <div>
+
+                        <h3>${formattedDate}</h3>
+
+                        <small>${formattedTime}</small>
+
+                    </div>
+
+                    <button
+                        class="history-menu-btn"
+                        data-id="${record.id}"
+                    >
+                        ⋮
+                    </button>
+
+                </div>
+
+                <div class="history-record-body">
+
+                    <p>
+
+                        <strong>Subjects:</strong>
+                        ${record.subjects ? record.subjects.length : 0}
+
+                    </p>
+
+                    <p>
+
+                        <strong>Completed Topics:</strong>
+                        ${record.completedTopics || 0}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+    recordsContainer.innerHTML = html;
+
+}
 
 };
 
