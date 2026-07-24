@@ -17,6 +17,7 @@ const Dashboard = {
     this.renderHero();
 
     this.renderStats();
+      this.renderQuickActions();
 
 },
 
@@ -209,6 +210,65 @@ const Dashboard = {
 </div>
 
 </div>
+
+</div>
+
+`;
+
+},
+
+   renderQuickActions() {
+
+    const container =
+        document.getElementById("dashboardQuickActions");
+
+    if (!container) return;
+
+    container.innerHTML = `
+
+<div class="dashboardQuickCard">
+
+    <h3>Quick Actions</h3>
+
+    <div class="quickGrid">
+
+        <button
+            class="quickItem"
+            onclick="showPage('plannerPage')">
+
+            📚
+            <span>Planner</span>
+
+        </button>
+
+        <button
+            class="quickItem"
+            onclick="showPage('notesPage')">
+
+            📝
+            <span>Notes</span>
+
+        </button>
+
+        <button
+            class="quickItem"
+            onclick="showPage('syllabusPage')">
+
+            📖
+            <span>Syllabus</span>
+
+        </button>
+
+        <button
+            class="quickItem"
+            onclick="showPage('cloudSyncPage')">
+
+            ☁️
+            <span>Cloud</span>
+
+        </button>
+
+    </div>
 
 </div>
 
