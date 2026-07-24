@@ -235,6 +235,28 @@ if (ring) {
 
     ring.style.strokeDashoffset = offset;
 
+    if (typeof daysLeft === "number") {
+
+        if (daysLeft > 60) {
+
+            ring.style.stroke = "#22c55e";   // Green
+
+        } else if (daysLeft > 30) {
+
+            ring.style.stroke = "#eab308";   // Yellow
+
+        } else if (daysLeft > 7) {
+
+            ring.style.stroke = "#f97316";   // Orange
+
+        } else {
+
+            ring.style.stroke = "#ef4444";   // Red
+
+        }
+
+    }
+
 }
 
 },
