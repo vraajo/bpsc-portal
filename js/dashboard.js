@@ -156,7 +156,7 @@ const Dashboard = {
 
 `;
 
-}
+},
 
 
    renderStats() {
