@@ -14,6 +14,8 @@ const Dashboard = {
 
     refresh() {
 
+    alert("Dashboard Refresh");
+
     this.renderHero();
 
     this.renderStats();
