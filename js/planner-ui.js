@@ -59,25 +59,23 @@ topicButtons.forEach(button => {
 .querySelectorAll(".deleteTopicBtn")
 .forEach(button => {
 
-    button.addEventListener("click", () => {
+    button.onclick = (event) => {
 
-        this.confirmSubjectId =
-    button.dataset.subject;
+        event.stopPropagation();
 
-this.confirmTopicId =
-    button.dataset.topic;
+        alert("Delete button clicked");
 
-this.openConfirmModal(
+        this.confirmSubjectId = button.dataset.subject;
 
-    "Delete Topic",
+        this.confirmTopicId = button.dataset.topic;
 
-    "Delete this topic?",
+        this.openConfirmModal(
+            "Delete Topic",
+            "Delete this topic?",
+            "deleteTopic"
+        );
 
-    "deleteTopic"
-
-);
-
-    });
+    };
 
 });
 
