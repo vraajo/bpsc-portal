@@ -14,9 +14,11 @@ const Dashboard = {
 
     refresh() {
 
-        this.renderHero();
+    this.renderHero();
 
-    },
+    this.renderStats();
+
+},
 
     renderHero() {
 
