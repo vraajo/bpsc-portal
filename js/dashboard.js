@@ -20,125 +20,131 @@ const Dashboard = {
 
     renderHero() {
 
-        const container =
-            document.getElementById("dashboardHero");
+    const container =
+        document.getElementById("dashboardHero");
 
-        if (!container) return;
+    if (!container) return;
 
-        const hour = new Date().getHours();
+    const hour = new Date().getHours();
 
-        let greeting = "Good Evening";
+    let greeting = "Good Evening";
 
-        if (hour >= 5 && hour < 12) {
+    if (hour >= 5 && hour < 12) {
 
-            greeting = "Good Morning";
+        greeting = "Good Morning";
 
-        } else if (hour >= 12 && hour < 17) {
+    } else if (hour >= 12 && hour < 17) {
 
-            greeting = "Good Afternoon";
+        greeting = "Good Afternoon";
 
-        } else if (hour >= 17 && hour < 21) {
+    } else if (hour >= 17 && hour < 21) {
 
-            greeting = "Good Evening";
+        greeting = "Good Evening";
+
+    } else {
+
+        greeting = "Good Night";
+
+    }
+
+    let name = "Guest";
+
+    if (
+        typeof firebase !== "undefined" &&
+        firebase.auth().currentUser
+    ) {
+
+        name =
+            firebase.auth().currentUser.displayName ||
+            "User";
+
+    }
+
+    const examDate =
+        localStorage.getItem("examDate");
+
+    let daysLeft = "--";
+    let status = "Set Exam Date";
+
+    if (examDate) {
+
+        const today = new Date();
+        today.setHours(0,0,0,0);
+
+        const exam = new Date(examDate);
+        exam.setHours(0,0,0,0);
+
+        const diff = Math.ceil(
+            (exam - today) /
+            (1000 * 60 * 60 * 24)
+        );
+
+        daysLeft = diff;
+
+        if (diff > 1) {
+
+            status = "Days Left";
+
+        } else if (diff === 1) {
+
+            status = "Tomorrow";
+
+        } else if (diff === 0) {
+
+            status = "Exam Today";
 
         } else {
 
-            greeting = "Good Night";
+            status = "Exam Over";
 
         }
 
-        let name = "Guest";
+    }
 
-        if (
-            typeof firebase !== "undefined" &&
-            firebase.auth().currentUser
-        ) {
+    container.innerHTML = `
 
-            name =
-                firebase.auth().currentUser.displayName ||
-                "User";
+<div class="dashboardHeroCard">
 
-        }
+    <div class="heroLeft">
 
-        const examDate =
-            localStorage.getItem("examDate");
+        <h2>
 
-        let countdownText =
-            "Set your BPSC exam date in Study Profile.";
+            ${greeting}, ${name} 👋
 
-        let message =
-            "Every topic you complete brings you closer to success.";
-
-        if (examDate) {
-
-            const today = new Date();
-
-            today.setHours(0,0,0,0);
-
-            const exam = new Date(examDate);
-
-            exam.setHours(0,0,0,0);
-
-            const daysLeft = Math.ceil(
-                (exam - today) /
-                (1000 * 60 * 60 * 24)
-            );
-
-            if (daysLeft > 1) {
-
-                countdownText =
-                    `${daysLeft} Days Left Until Exam`;
-
-            } else if (daysLeft === 1) {
-
-                countdownText =
-                    "Tomorrow is your exam!";
-
-            } else if (daysLeft === 0) {
-
-                countdownText =
-                    "🎯 Best of Luck! Today is your exam.";
-
-            } else {
-
-                countdownText =
-                    "Congratulations! Update your next exam date.";
-
-            }
-
-        }
-
-        container.innerHTML = `
-
-<div class="dashboard-hero">
-
-    <h1>
-
-        ${greeting}, ${name} 👋
-
-    </h1>
-
-    <p>
-
-        Let's continue your BPSC preparation.
-
-    </p>
-
-    <div class="dashboard-countdown">
-
-        <h2>🎯 BPSC Countdown</h2>
-
-        <div class="dashboard-days">
-
-            ${countdownText}
-
-        </div>
+        </h2>
 
         <p>
 
-            ${message}
+            Let's continue your preparation.
 
         </p>
+
+        <small>
+
+            Every topic you complete
+            brings you closer to success.
+
+        </small>
+
+    </div>
+
+    <div class="heroRight">
+
+        <div class="countdownCircle">
+
+            <div class="countdownNumber">
+
+                ${daysLeft}
+
+            </div>
+
+            <div class="countdownLabel">
+
+                ${status}
+
+            </div>
+
+        </div>
 
     </div>
 
@@ -146,6 +152,6 @@ const Dashboard = {
 
 `;
 
-    }
+}
 
 };
