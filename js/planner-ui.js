@@ -642,6 +642,46 @@ this.openConfirmModal(
 
 },
 
+   // new finish today functio 
+
+   
+finishToday() {
+
+    const planner = PlannerEngine.getPlanner();
+
+    if (!planner.subjects.length) {
+
+        showToast(
+            "No study plan to archive.",
+            "warning"
+        );
+
+        return;
+
+    }
+
+    StudyHistoryStorage.add(planner);
+
+    PlannerStorage.clear();
+
+    PlannerEngine.init();
+
+    this.render();
+
+    if (window.StudyHistory) {
+
+        StudyHistory.render();
+
+    }
+
+    showToast(
+        "Today's study archived successfully!",
+        "success"
+    );
+
+},
+
+
    //render art added in second time
 
     render() {
