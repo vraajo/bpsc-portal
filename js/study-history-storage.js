@@ -44,11 +44,15 @@ const StudyHistoryStorage = {
 
    add(planner) {
 
-    if (!planner) {
+    if (
+    !planner ||
+    !planner.subjects ||
+    planner.subjects.length === 0
+) {
 
-        return false;
+    return false;
 
-    }
+}
 
     const data = this.load();
 
