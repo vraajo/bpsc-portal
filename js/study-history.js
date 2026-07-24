@@ -294,13 +294,9 @@ button.addEventListener("click", () => {
 
     showRecordMenu(recordId) {
 
-    const oldSheet = document.getElementById("historyActionSheet");
-
-    if (oldSheet) {
-
-        oldSheet.remove();
-
-    }
+    document
+        .getElementById("historyActionSheet")
+        ?.remove();
 
     const sheet = document.createElement("div");
 
@@ -308,61 +304,71 @@ button.addEventListener("click", () => {
 
     sheet.innerHTML = `
 
-        <div class="history-sheet-backdrop"></div>
+<div class="history-sheet-backdrop"></div>
 
-        <div class="history-sheet">
+<div class="history-sheet">
 
-            <button class="history-sheet-btn view-btn">
+<div class="history-sheet-title">
 
-                👁 View Details
+Study Record
 
-            </button>
+</div>
 
-            <button class="history-sheet-btn delete-btn">
+<button class="history-sheet-btn view-btn">
 
-                🗑 Delete Record
+👁 View Details
 
-            </button>
+</button>
 
-            <button class="history-sheet-btn cancel-btn">
+<button class="history-sheet-btn delete-btn">
 
-                ✖ Cancel
+🗑 Delete Record
 
-            </button>
+</button>
 
-        </div>
+<button class="history-sheet-btn cancel-btn">
 
-    `;
+Cancel
+
+</button>
+
+</div>
+
+`;
 
     document.body.appendChild(sheet);
 
-    sheet.querySelector(".view-btn").addEventListener("click", () => {
+    sheet.querySelector(".view-btn")
+        .onclick = () => {
 
         sheet.remove();
 
         this.viewRecord(recordId);
 
-    });
+    };
 
-    sheet.querySelector(".delete-btn").addEventListener("click", () => {
+    sheet.querySelector(".delete-btn")
+        .onclick = () => {
 
         sheet.remove();
 
         this.deleteRecord(recordId);
 
-    });
+    };
 
-    sheet.querySelector(".cancel-btn").addEventListener("click", () => {
-
-        sheet.remove();
-
-    });
-
-    sheet.querySelector(".history-sheet-backdrop").addEventListener("click", () => {
+    sheet.querySelector(".cancel-btn")
+        .onclick = () => {
 
         sheet.remove();
 
-    });
+    };
+
+    sheet.querySelector(".history-sheet-backdrop")
+        .onclick = () => {
+
+        sheet.remove();
+
+    };
 
 },
 
