@@ -122,23 +122,13 @@ if (
     showPage("homePage");
 
    // Initialize Planner
-   try {
+   
     PlannerEngine.init();
-} catch(e) {
-    console.error("PlannerEngine", e);
-}
 
-try {
     PlannerUI.init();
-} catch(e) {
-    console.error("PlannerUI", e);
-}
 
-try {
     Dashboard.init();
-} catch(e) {
-    console.error("Dashboard", e);
-}
+
 
     // Keep app hidden until Welcome Module allows it
     hideMainApp();
