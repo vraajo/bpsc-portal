@@ -523,17 +523,23 @@ if (confirmOk) {
 
         if (this.confirmAction === "deleteTopic") {
 
-            PlannerEngine.deleteTopic(
-                this.confirmSubjectId,
-                this.confirmTopicId
-            );
+    alert(
+        this.confirmSubjectId +
+        "\n" +
+        this.confirmTopicId
+    );
 
-            showToast(
-                "Topic Deleted",
-                "success"
-            );
+    PlannerEngine.deleteTopic(
+        this.confirmSubjectId,
+        this.confirmTopicId
+    );
 
-        }
+    showToast(
+        "Topic Deleted",
+        "success"
+    );
+
+}
 
         this.closeConfirmModal();
 
