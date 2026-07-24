@@ -69,8 +69,8 @@ const Dashboard = {
         ? ProfileModule.localLoad()
         : null;
 
-const examDate =
-    profile?.examDate || "";
+const examDate = profile?.examDate || "";
+const startDate = profile?.startDate || null;
 
     let daysLeft = "--";
     let status = "Set Exam Date";
