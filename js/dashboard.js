@@ -115,15 +115,34 @@ const startDate = profile?.startDate || null;
 
        let progress = 0;
 
-if (examDate && typeof daysLeft === "number") {
+if (
+    examDate &&
+    startDate &&
+    typeof daysLeft === "number"
+) {
 
-    // 365-day countdown scale
-    progress = Math.max(
+    const start = new Date(startDate);
+    start.setHours(0, 0, 0, 0);
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const exam = new Date(examDate);
+    exam.setHours(0, 0, 0, 0);
+
+    const totalDays = Math.max(
+        1,
+        Math.ceil((exam - start) / (1000 * 60 * 60 * 24))
+    );
+
+    const elapsedDays = Math.max(
         0,
-        Math.min(
-            100,
-            ((365 - daysLeft) / 365) * 100
-        )
+        Math.ceil((today - start) / (1000 * 60 * 60 * 24))
+    );
+
+    progress = Math.min(
+        100,
+        (elapsedDays / totalDays) * 100
     );
 
 }
