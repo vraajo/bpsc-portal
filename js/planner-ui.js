@@ -989,12 +989,7 @@ const progress = totalTopics === 0
 this.bindSubjectMenu();
 this.bindEvents();
 
-       if (
-    window.Dashboard &&
-    typeof Dashboard.refreshTodayProgress === "function"
-) {
-    Dashboard.refreshTodayProgress();
-}
+StudyEvents.emit("planner:changed");
 
 
 }
