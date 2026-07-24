@@ -374,7 +374,123 @@ Cancel
 
     viewRecord(recordId) {
 
-    console.log("View Record:", recordId);
+    const history = StudyHistoryStorage.load();
+
+    const record = history.history.find(r => r.id === recordId);
+
+    if (!record) return;
+
+    const old = document.getElementById("historyDetailsModal");
+
+    if (old) old.remove();
+
+    const date = new Date(record.archivedAt);
+
+    let html = "";
+
+    let completed = 0;
+
+    let total = 0;
+
+    record.subjects.forEach(subject => {
+
+        html += `
+
+<div class="history-detail-subject">
+
+<h3>${subject.name}</h3>
+
+`;
+
+        subject.topics.forEach(topic => {
+
+            total++;
+
+            if (topic.completed) completed++;
+
+            html += `
+
+<div class="history-topic-row">
+
+<span>
+
+${topic.completed ? "✅" : "⬜"}
+
+${topic.title}
+
+</span>
+
+</div>
+
+`;
+
+        });
+
+        html += "</div>";
+
+    });
+
+    const modal = document.createElement("div");
+
+    modal.id = "historyDetailsModal";
+
+    modal.innerHTML = `
+
+<div class="history-detail-backdrop"></div>
+
+<div class="history-detail-sheet">
+
+<h2>📖 Study Record</h2>
+
+<p>
+
+${date.toLocaleDateString()}
+
+${date.toLocaleTimeString([],{
+
+hour:"2-digit",
+
+minute:"2-digit"
+
+})}
+
+</p>
+
+${html}
+
+<div class="history-summary">
+
+<div>Subjects : ${record.subjects.length}</div>
+
+<div>Topics : ${total}</div>
+
+<div>Completed : ${completed}</div>
+
+</div>
+
+<button class="primary-btn history-close-btn">
+
+Close
+
+</button>
+
+</div>
+
+`;
+
+    document.body.appendChild(modal);
+
+    modal.querySelector(".history-close-btn").onclick = () => {
+
+        modal.remove();
+
+    };
+
+    modal.querySelector(".history-detail-backdrop").onclick = () => {
+
+        modal.remove();
+
+    };
 
 },
 
