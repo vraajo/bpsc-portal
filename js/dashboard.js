@@ -201,16 +201,17 @@ if (examDate && typeof daysLeft === "number") {
 
 `;
 
-       const ring =
-    container.querySelector(".countdownProgress");
+       const ring = container.querySelector(".countdownProgress");
 
 if (ring) {
 
-    const circumference = 327;
+    const radius = 52;
+    const circumference = 2 * Math.PI * radius;
+
+    ring.style.strokeDasharray = circumference;
 
     const offset =
-        circumference -
-        (progress / 100) * circumference;
+        circumference * (1 - progress / 100);
 
     ring.style.strokeDashoffset = offset;
 
