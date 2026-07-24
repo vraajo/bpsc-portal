@@ -335,6 +335,12 @@ if (ring) {
 
 },
 
+   refreshTodayProgress() {
+
+    this.renderStats("homeTodayProgress");
+
+},
+
    renderQuickActions() {
 
     const container =
