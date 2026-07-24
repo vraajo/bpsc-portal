@@ -36,6 +36,19 @@ const PlannerUI = {
 
     }
 
+       const finishBtn =
+    document.getElementById("finishTodayBtn");
+
+if (finishBtn) {
+
+    finishBtn.onclick = () => {
+
+        this.finishToday();
+
+    };
+
+}
+
     const topicButtons =
     document.querySelectorAll(".addTopicBtn");
 
@@ -52,6 +65,8 @@ topicButtons.forEach(button => {
     });
 
 });
+
+       
 
        // delete topic block
 
@@ -645,6 +660,18 @@ this.openConfirmModal(
     planner.subjects.length === 0
        ) {
 
+       html += `
+
+<button
+    class="primary-btn"
+    id="finishTodayBtn">
+
+    ✓ Finish Today
+
+</button>
+
+`;
+       
         container.innerHTML = `
 
         <div class="plannerEmpty">
