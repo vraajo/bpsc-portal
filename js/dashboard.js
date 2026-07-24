@@ -17,9 +17,10 @@ const Dashboard = {
     this.renderHero();
 
     this.renderStats();
+    this.renderStats("homeTodayProgress");
       this.renderQuickActions();
       this.renderRecentActivity();
-      this.renderStats("homeTodayProgress");
+      
 
 },
 
