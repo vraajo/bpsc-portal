@@ -446,8 +446,9 @@ button.addEventListener("click", () => {
 
 };
 
+/*
 document.addEventListener("DOMContentLoaded", () => {
 
     StudyHistory.init();
 
-});
+}); */
