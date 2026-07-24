@@ -78,16 +78,117 @@ const PlannerEngine = {
 
         );
 
+            // ==========================================
+// Lifetime Statistics
+// ==========================================
+
+// Number of unique study days
+const studyDaySet = new Set();
+
+planner.subjects.forEach(subject => {
+
+    subject.topics.forEach(topic => {
+
+        if (topic.completedDate) {
+
+            studyDaySet.add(topic.completedDate);
+
+        }
+
+    });
+
+});
+
+const studyDays = studyDaySet.size;
+
+// Placeholder until Pomodoro is connected
+const studyHours = 0;
+
+// Preparation information
+const profile =
+    typeof ProfileModule !== "undefined"
+        ? ProfileModule.localLoad()
+        : null;
+
+const preparationStarted =
+    profile?.startDate || "";
+
+let daysPreparing = 0;
+
+if (preparationStarted) {
+
+    const start =
+        new Date(preparationStarted);
+
+    start.setHours(0,0,0,0);
+
+    const todayDate =
+        new Date();
+
+    todayDate.setHours(0,0,0,0);
+
+    daysPreparing = Math.max(
+
+        0,
+
+        Math.ceil(
+
+            (todayDate - start) /
+
+            (1000*60*60*24)
+
+        )
+
+    );
+
+}
+
+// Last Study
+let lastStudy = "";
+
+if (studyDaySet.size > 0) {
+
+    const dates =
+        [...studyDaySet].sort();
+
+    lastStudy =
+        dates[dates.length - 1];
+
+}
+
+// Current Streak (placeholder)
+const currentStreak = 0;
+
+
+      
+
     return {
 
-        totalSubjects,
-        totalTopics,
-        completedTopics,
-        remainingTopics,
-        overallProgress,
-        completedToday
+    totalSubjects,
 
-    };
+    totalTopics,
+
+    completedTopics,
+
+    remainingTopics,
+
+    overallProgress,
+
+    completedToday,
+
+    studyDays,
+
+    studyHours,
+
+    preparationStarted,
+
+    daysPreparing,
+
+    lastStudy,
+
+    currentStreak
+
+};
 
 },
 
