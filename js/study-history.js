@@ -255,6 +255,64 @@ const StudyHistory = {
 
     recordsContainer.innerHTML = html;
 
+        this.attachMenuEvents();
+
+},
+
+    attachMenuEvents() {
+
+    document.querySelectorAll(".history-menu-btn").forEach(button => {
+
+        button.addEventListener("click", (event) => {
+
+            event.stopPropagation();
+
+            const recordId = button.dataset.id;
+
+            this.showRecordMenu(recordId);
+
+        });
+
+    });
+
+},
+
+    showRecordMenu(recordId) {
+
+    const action = prompt(
+`Study History
+
+1 = View Details
+
+2 = Delete Record`
+    );
+
+    if (action === "1") {
+
+        this.viewRecord(recordId);
+
+    } else if (action === "2") {
+
+        this.deleteRecord(recordId);
+
+    }
+
+},
+
+    viewRecord(recordId) {
+
+    console.log("View Record:", recordId);
+
+},
+
+    deleteRecord(recordId) {
+
+    if (!confirm("Delete this study history?")) return;
+
+    StudyHistoryStorage.delete(recordId);
+
+    this.render();
+
 },
 
 };
