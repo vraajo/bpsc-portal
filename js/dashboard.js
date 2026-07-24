@@ -10,6 +10,18 @@ const Dashboard = {
 
         this.refresh();
 
+       StudyEvents.on(
+
+    "planner:changed",
+
+    () => {
+
+        this.refreshTodayProgress();
+
+    }
+
+);
+
     },
 
     refresh() {
