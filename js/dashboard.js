@@ -262,10 +262,10 @@ if (ring) {
 },
 
 
-   renderStats() {
+   renderStats(containerId = "dashboardStats") {
 
     const container =
-        document.getElementById("dashboardStats");
+    document.getElementById(containerId);
 
     if (!container) return;
 
