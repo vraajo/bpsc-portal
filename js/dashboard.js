@@ -193,6 +193,21 @@ if (examDate && typeof daysLeft === "number") {
 
 `;
 
+       const ring =
+    container.querySelector(".countdownProgress");
+
+if (ring) {
+
+    const circumference = 327;
+
+    const offset =
+        circumference -
+        (progress / 100) * circumference;
+
+    ring.style.strokeDashoffset = offset;
+
+}
+
 },
 
 
