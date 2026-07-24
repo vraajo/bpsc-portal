@@ -64,26 +64,18 @@ const Dashboard = {
 
     }
 
-    const examDate =
-        localStorage.getItem("examDate");
+    const profile =
+    typeof ProfileModule !== "undefined"
+        ? ProfileModule.localLoad()
+        : null;
+
+const examDate =
+    profile?.examDate || "";
 
     let daysLeft = "--";
     let status = "Set Exam Date";
 
-    let progress = 0;
-
-if (examDate && typeof daysLeft === "number") {
-
-    // 365-day countdown scale
-    progress = Math.max(
-        0,
-        Math.min(
-            100,
-            ((365 - daysLeft) / 365) * 100
-        )
-    );
-
-}
+    
 
     if (examDate) {
 
@@ -118,7 +110,23 @@ if (examDate && typeof daysLeft === "number") {
 
         }
 
+
     }
+
+       let progress = 0;
+
+if (examDate && typeof daysLeft === "number") {
+
+    // 365-day countdown scale
+    progress = Math.max(
+        0,
+        Math.min(
+            100,
+            ((365 - daysLeft) / 365) * 100
+        )
+    );
+
+}
 
     container.innerHTML = `
 
