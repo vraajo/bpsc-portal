@@ -96,7 +96,7 @@ auth.onAuthStateChanged(async (user) => {
 
     if (typeof CloudSync !== "undefined") {
 
-        await CloudSync.restoreAll();
+    //    await CloudSync.restoreAll();
 
     }
 
@@ -153,10 +153,10 @@ function updateUI(user) {
 
    if (typeof CloudSync !== "undefined") {
 
-    CloudSync.restoreAll();
+ /*   CloudSync.restoreAll();
 
       updateLastSync();
-      showToast("Cloud Restore Complete", "success");
+      showToast("Cloud Restore Complete", "success"); */
 
 }
 
