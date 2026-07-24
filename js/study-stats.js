@@ -44,4 +44,82 @@ window.StudyStats = {
 
     save: saveStats
 
+   incrementStudyDay() {
+
+    const stats = loadStats();
+
+    const today = new Date()
+        .toISOString()
+        .split("T")[0];
+
+    if (stats.lastStudyDate !== today) {
+
+        stats.studyDays++;
+
+        stats.lastStudyDate = today;
+
+        saveStats(stats);
+
+    }
+
+    return stats;
+
+},
+
+completeTopic() {
+
+    const stats = loadStats();
+
+    stats.topicsCompleted++;
+
+    saveStats(stats);
+
+    return stats;
+
+},
+
+completeRevision() {
+
+    const stats = loadStats();
+
+    stats.revisionsCompleted++;
+
+    saveStats(stats);
+
+    return stats;
+
+},
+
+addStudyMinutes(minutes) {
+
+    const stats = loadStats();
+
+    const value = Number(minutes);
+
+    if (!Number.isFinite(value) || value <= 0) {
+        return stats;
+    }
+
+    stats.studyMinutes += value;
+
+    saveStats(stats);
+
+    return stats;
+
+},
+
+reset() {
+
+    const stats = {
+
+        ...DEFAULT_STATS
+
+    };
+
+    saveStats(stats);
+
+    return stats;
+
+}
+
 };
