@@ -546,6 +546,40 @@ if (confirmOk) {
 
 }
 
+       if (this.confirmAction === "finishToday") {
+
+    const planner = PlannerEngine.getPlanner();
+
+    const archived = StudyHistoryStorage.add(planner);
+
+    if (!archived) {
+
+        showToast(
+            "Nothing to archive.",
+            "warning"
+        );
+
+        return;
+
+    }
+
+    PlannerStorage.clear();
+
+    PlannerEngine.init();
+
+    if (window.StudyHistory) {
+
+        StudyHistory.render();
+
+    }
+
+    showToast(
+        "Today's study archived successfully!",
+        "success"
+    );
+
+}
+
         this.closeConfirmModal();
 
         this.render();
@@ -677,15 +711,19 @@ finishToday() {
 
     }
 
-    const ok = confirm(
-        "Archive today's study and clear the planner?"
-    );
+    this.confirmAction = "finishToday";
 
-    if (!ok) {
+this.openConfirmModal(
 
-        return;
+    "Finish Today",
 
-    }
+    "Archive today's study and clear the planner?",
+
+    "finishToday"
+
+);
+
+return;
 
     StudyHistoryStorage.add(planner);
 
