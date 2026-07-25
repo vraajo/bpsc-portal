@@ -288,8 +288,11 @@ renderLifetimeStatistics() {
 
     if (!container) return;
 
-    const stats =
-        PlannerEngine.getStatistics();
+   /* const stats =
+        PlannerEngine.getStatistics(); */
+
+   const historyStats =
+    StudyHistoryStorage.getStatistics();
 
     container.innerHTML = `
 
