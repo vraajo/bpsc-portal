@@ -310,7 +310,8 @@ renderLifetimeStatistics() {
 
             <div class="lifeValue">
 
-                ${stats.totalSubjects}
+                
+                ${historyStats.totalSubjects}
 
             </div>
 
@@ -326,7 +327,7 @@ renderLifetimeStatistics() {
 
             <div class="lifeValue">
 
-                ${stats.completedTopics}
+                ${historyStats.completedTopics}
 
             </div>
 
@@ -342,7 +343,7 @@ renderLifetimeStatistics() {
 
             <div class="lifeValue">
 
-                ${stats.studyDays}
+                ${historyStats.totalDays}
 
             </div>
 
@@ -358,7 +359,7 @@ renderLifetimeStatistics() {
 
             <div class="lifeValue">
 
-                ${stats.studyHours}h
+                0h
 
             </div>
 
