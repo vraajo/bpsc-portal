@@ -391,9 +391,13 @@ renderLifetimeStatistics() {
 
     if (!container) return;
 
-    const stats =
-        PlannerEngine.getStatistics();
+    const plannerStats =
+    PlannerEngine.getStatistics();
 
+const historyStats =
+    StudyHistoryStorage.getStatistics();
+
+      
     container.innerHTML = `
 
 <div class="dashboardJourneyCard">
@@ -462,7 +466,10 @@ renderLifetimeStatistics() {
 
         <strong>
 
-            ${stats.lastStudy || "--"}
+
+            ${historyStats.totalDays > 0
+    ? "Today"
+    : "--"}
 
         </strong>
 
