@@ -574,3 +574,52 @@ document.addEventListener("DOMContentLoaded", () => {
     StudyHistory.init();
 
 }); */
+
+
+/*
+document.addEventListener("DOMContentLoaded", () => {
+
+    StudyHistory.init();
+
+}); */
+
+
+/* ==========================================================
+   CLOUD SYNC REGISTRATION
+========================================================== */
+
+if (typeof CloudSync !== "undefined") {
+
+    CloudSync.register(
+
+        "studyHistory",
+
+        function () {
+
+            return StudyHistoryStorage.load();
+
+        },
+
+        function (historyData) {
+
+            if (!historyData) return;
+
+            StudyHistoryStorage.save(historyData);
+
+            if (typeof StudyHistory !== "undefined") {
+
+                StudyHistory.render();
+
+            }
+
+            if (typeof Dashboard !== "undefined") {
+
+                Dashboard.refresh();
+
+            }
+
+        }
+
+    );
+
+}
