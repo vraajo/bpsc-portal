@@ -265,12 +265,9 @@ CloudSync.restoreAll = async function () {
 
    } catch (e) {
 
-    console.error("Restore Error:", e);
+    console.error(e);
 
-    showToast(
-        e.message || "Restore Failed",
-        "error"
-    );
+    showToast("Restore Failed", "error");
 
 };
 
