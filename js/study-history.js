@@ -566,7 +566,6 @@ Close
 
 },
 
-};
 
 /*
 document.addEventListener("DOMContentLoaded", () => {
@@ -604,7 +603,7 @@ if (typeof CloudSync !== "undefined") {
 
             if (!historyData) return;
 
-            StudyHistoryStorage.save(historyData);
+            StudyHistoryStorage.merge(historyData);
 
             if (typeof StudyHistory !== "undefined") {
 
@@ -623,3 +622,4 @@ if (typeof CloudSync !== "undefined") {
     );
 
 }
+};
