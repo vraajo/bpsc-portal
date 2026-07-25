@@ -142,7 +142,42 @@ getStatistics() {
 
     };
 
-}
+},
+
+merge(cloudData) {
+
+    if (
+        !cloudData ||
+        !Array.isArray(cloudData.history)
+    ) {
+        return;
+    }
+
+    const localData = this.load();
+
+    const existingIds = new Set(
+        localData.history.map(record => record.id)
+    );
+
+    cloudData.history.forEach(record => {
+
+        if (!existingIds.has(record.id)) {
+
+            localData.history.push(record);
+
+        }
+
+    });
+
+    localData.history.sort((a, b) => {
+
+        return b.archivedAt - a.archivedAt;
+
+    });
+
+    this.save(localData);
+
+},
 
 };
 
