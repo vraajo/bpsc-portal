@@ -56,17 +56,21 @@ const StudyHistoryStorage = {
 
     const data = this.load();
 
-    const snapshot = {
+    const now = Date.now();
 
-        id: crypto.randomUUID(),
+const snapshot = {
 
-        date: planner.date,
+    id: crypto.randomUUID(),
 
-        archivedAt: Date.now(),
+    date: planner.date,
 
-        subjects: structuredClone(planner.subjects)
+    archivedAt: now,
 
-    };
+    updatedAt: now,
+
+    subjects: structuredClone(planner.subjects)
+
+};
 
     data.history.unshift(snapshot);
 
