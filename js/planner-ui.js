@@ -304,6 +304,31 @@ document
 
     this.confirmAction = action;
 
+      const okButton =
+    document.getElementById("plannerConfirmOkBtn");
+
+if (okButton) {
+
+    if (action === "finishToday") {
+
+        okButton.textContent = "Finish";
+
+        okButton.classList.remove("danger-btn");
+
+        okButton.classList.add("primary-btn");
+
+    } else {
+
+        okButton.textContent = "Delete";
+
+        okButton.classList.remove("primary-btn");
+
+        okButton.classList.add("danger-btn");
+
+    }
+
+}
+
     document.getElementById(
         "plannerConfirmTitle"
     ).textContent = title;
