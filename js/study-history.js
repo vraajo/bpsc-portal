@@ -398,7 +398,7 @@ Cancel
 
 <div class="history-detail-subject">
 
-<h3>${subject.name}</h3>
+<h3>${subject.title}</h3>
 
 `;
 
