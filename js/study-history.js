@@ -564,15 +564,8 @@ Close
 
     this.render();
 
-},
-
-
-/*
-document.addEventListener("DOMContentLoaded", () => {
-
-    StudyHistory.init();
-
-}); */
+}
+};
 
 
 /*
@@ -622,4 +615,4 @@ if (typeof CloudSync !== "undefined") {
     );
 
 }
-};
+
