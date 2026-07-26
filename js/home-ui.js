@@ -10,6 +10,7 @@ const HomeUI = {
 
         this.renderStudyTimer();
         this.bindEvents();
+        this.startClock();
 
     },
 
@@ -129,6 +130,34 @@ const HomeUI = {
             HomeEngine.stopTimer();
         });
     }
+
+},
+
+   startClock() {
+
+    this.updateClock();
+
+    setInterval(() => {
+
+        this.updateClock();
+
+    }, 1000);
+
+},
+
+updateClock() {
+
+    const clock = document.getElementById("studyTimerClock");
+
+    if (!clock) return;
+
+    const seconds = HomeEngine.getCurrentSessionSeconds();
+
+    const hrs = String(Math.floor(seconds / 3600)).padStart(2, "0");
+    const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
+    const secs = String(seconds % 60).padStart(2, "0");
+
+    clock.textContent = `${hrs}:${mins}:${secs}`;
 
 }
 
