@@ -91,7 +91,7 @@ if (window.CloudSync) {
 
             PlannerStorage.save(cloudData);
 
-            PlannerEngine.init();
+            PlannerEngine.planner = PlannerStorage.load();
 
             if (window.PlannerUI) {
 
