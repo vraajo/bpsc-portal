@@ -9,6 +9,7 @@ const HomeUI = {
     init() {
 
         this.renderStudyTimer();
+        this.bindEvents();
 
     },
 
@@ -97,5 +98,38 @@ const HomeUI = {
 `;
 
     }
+
+
+   bindEvents() {
+
+    const startBtn = document.getElementById("timerStartBtn");
+    const pauseBtn = document.getElementById("timerPauseBtn");
+    const stopBtn = document.getElementById("timerStopBtn");
+
+    if (startBtn) {
+        startBtn.addEventListener("click", () => {
+            HomeEngine.startTimer();
+        });
+    }
+
+    if (pauseBtn) {
+        pauseBtn.addEventListener("click", () => {
+
+            if (HomeEngine.getData().timerState === "running") {
+                HomeEngine.pauseTimer();
+            } else if (HomeEngine.getData().timerState === "paused") {
+                HomeEngine.resumeTimer();
+            }
+
+        });
+    }
+
+    if (stopBtn) {
+        stopBtn.addEventListener("click", () => {
+            HomeEngine.stopTimer();
+        });
+    }
+
+}
 
 };
