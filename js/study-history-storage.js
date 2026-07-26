@@ -58,6 +58,80 @@ const StudyHistoryStorage = {
 
     const now = Date.now();
 
+      const today = new Date(now)
+    .toISOString()
+    .split("T")[0];
+
+const existingRecord = data.history.find(record => {
+
+    return (
+        new Date(record.archivedAt)
+            .toISOString()
+            .split("T")[0] === today
+    );
+
+});
+
+
+      
+
+if (existingRecord) {
+
+    planner.subjects.forEach(newSubject => {
+
+        let existingSubject = existingRecord.subjects.find(subject => {
+
+            return subject.title === newSubject.title;
+
+        });
+
+        if (!existingSubject) {
+
+            existingRecord.subjects.push(
+                structuredClone(newSubject)
+            );
+
+            return;
+
+        }
+
+        newSubject.topics.forEach(newTopic => {
+
+            let existingTopic = existingSubject.topics.find(topic => {
+
+                return topic.title === newTopic.title;
+
+            });
+
+            if (!existingTopic) {
+
+                existingSubject.topics.push(
+                    structuredClone(newTopic)
+                );
+
+                return;
+
+            }
+
+            if (newTopic.completed) {
+
+                existingTopic.completed = true;
+
+            }
+
+        });
+
+    });
+
+    existingRecord.updatedAt = now;
+
+    this.save(data);
+
+    return existingRecord;
+
+}
+      
+
 const snapshot = {
 
     id: crypto.randomUUID(),
@@ -72,13 +146,14 @@ const snapshot = {
 
 };
 
-    data.history.unshift(snapshot);
+data.history.unshift(snapshot);
 
-    this.save(data);
+this.save(data);
 
-    return snapshot;
+return snapshot;
 
 },
+   
 
 delete(historyId) {
 
