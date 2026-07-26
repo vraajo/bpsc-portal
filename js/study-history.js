@@ -319,6 +319,22 @@ if (records.length === 0) {
 
         });
 
+        let totalTopics = 0;
+
+let completedTopics = 0;
+
+record.subjects.forEach(subject => {
+
+    totalTopics += subject.topics.length;
+
+    completedTopics += subject.topics.filter(topic => {
+
+        return topic.completed;
+
+    }).length;
+
+});
+
     const subjectsPreview = record.subjects.map((subject, index) => {
 
     const icons = ["📘", "📗", "📙", "📕", "📓"];
@@ -369,9 +385,26 @@ if (records.length === 0) {
 
                 <div class="history-subject-preview-list">
 
-                      ${subjectsPreview}
+    ${subjectsPreview}
 
-                </div>
+</div>
+
+<div class="history-record-summary">
+
+    <div class="history-summary-label">
+
+        ✅ Completed
+
+    </div>
+
+    <div class="history-summary-value">
+
+        ${completedTopics} / ${totalTopics}
+        ${totalTopics === 1 ? "Topic" : "Topics"}
+
+    </div>
+
+</div>
 
             </div>
 
