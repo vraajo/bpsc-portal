@@ -394,6 +394,8 @@ renderLifetimeStatistics() {
     const plannerStats =
     PlannerEngine.getStatistics();
 
+      const stats = plannerStats;
+
 const historyStats =
     StudyHistoryStorage.getStatistics();
 
