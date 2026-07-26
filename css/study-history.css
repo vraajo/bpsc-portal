@@ -375,12 +375,16 @@ width:100%;
 
 .history-subject-preview{
 
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
     font-size:15px;
 
     opacity:.9;
 
-    display:flex;
-
-    align-items:center;
+    padding:4px 0;
 
 }
