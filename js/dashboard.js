@@ -499,45 +499,62 @@ const historyStats =
 
     container.innerHTML = `
 
-<div class="dashboardStatsCard">
+<div class="homeProgressCard">
 
-<h3>Today's Progress</h3>
+    <h3>Today's Progress</h3>
 
-<div class="dashboardStatsGrid">
+    <div class="homeProgressBar">
 
-<div class="dashboardStat">
+        <div
+            class="homeProgressFill"
+            style="width:${stats.overallProgress}%;">
+        </div>
 
-<div class="statValue">${stats.completedToday}</div>
+    </div>
 
-<div class="statLabel">Today</div>
+    <div class="homeProgressMain">
 
-</div>
+        <div class="progressMainValue">
 
-<div class="dashboardStat">
+            ${stats.completedToday}
 
-<div class="statValue">${stats.overallProgress}%</div>
+        </div>
 
-<div class="statLabel">Overall</div>
+        <div class="progressMainLabel">
 
-</div>
+            Topics Completed Today
 
-<div class="dashboardStat">
+        </div>
 
-<div class="statValue">${stats.totalSubjects}</div>
+    </div>
 
-<div class="statLabel">Subjects</div>
+    <div class="homeProgressStats">
 
-</div>
+        <div class="progressRow">
 
-<div class="dashboardStat">
+            <span>Overall Progress</span>
 
-<div class="statValue">${stats.remainingTopics}</div>
+            <strong>${stats.overallProgress}%</strong>
 
-<div class="statLabel">Remaining</div>
+        </div>
 
-</div>
+        <div class="progressRow">
 
-</div>
+            <span>Subjects</span>
+
+            <strong>${stats.totalSubjects}</strong>
+
+        </div>
+
+        <div class="progressRow">
+
+            <span>Topics Left</span>
+
+            <strong>${stats.remainingTopics}</strong>
+
+        </div>
+
+    </div>
 
 </div>
 
