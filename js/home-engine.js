@@ -139,6 +139,22 @@ resumeTimer() {
 
     this.save();
 
+},
+
+   getCurrentSessionSeconds() {
+
+    if (this.data.timerState === "running") {
+
+        return Math.floor(
+
+            (Date.now() - this.data.sessionStartTime) / 1000
+
+        );
+
+    }
+
+    return this.data.currentSessionSeconds;
+
 }
 
 };
