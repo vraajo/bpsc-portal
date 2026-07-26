@@ -269,6 +269,8 @@ CloudSync.restoreAll = async function () {
 
     showToast("Restore Failed", "error");
 
+    }
+
 };
 
 /* ---------- Export ---------- */
