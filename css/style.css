@@ -147,7 +147,7 @@ section{
 
     right:16px;
 
-    bottom:16px;
+    bottom: max(16px, env(safe-area-inset-bottom));
 
     height:72px;
 
