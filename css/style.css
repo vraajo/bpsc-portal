@@ -310,3 +310,66 @@ section{
   }
 
 }
+
+
+/* ===========================
+   Temporary Study timer css
+=========================== */
+
+
+
+.studyTimerCard{
+
+    margin-top:20px;
+
+    padding:24px;
+
+    border-radius:24px;
+
+    background:var(--card);
+
+}
+
+.studyTimerHeader{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:24px;
+
+}
+
+.studyTimerClock{
+
+    font-size:48px;
+
+    font-weight:700;
+
+    text-align:center;
+
+    margin:24px 0;
+
+}
+
+.studyTimerButtons{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.studyTimerButtons button{
+
+    flex:1;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:16px;
+
+}
