@@ -215,6 +215,46 @@ section{
 
 }
 
+.navIcon{
+
+    font-size:26px;
+
+    line-height:1;
+
+    transition:.25s ease;
+
+}
+
+.navLabel{
+
+    font-size:11px;
+
+    margin-top:2px;
+
+    transition:.25s ease;
+
+}
+
+.bottomNav button.active .navIcon{
+
+    font-variation-settings:
+        "FILL" 1,
+        "wght" 600,
+        "GRAD" 0,
+        "opsz" 24;
+
+}
+
+.bottomNav button:not(.active) .navIcon{
+
+    font-variation-settings:
+        "FILL" 0,
+        "wght" 400,
+        "GRAD" 0,
+        "opsz" 24;
+
+}
+
 /* ===========================
    Buttons
 =========================== */
