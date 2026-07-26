@@ -155,6 +155,12 @@ resumeTimer() {
 
     return this.data.currentSessionSeconds;
 
+},
+
+   getTodayStudySeconds() {
+
+    return this.data.todayStudySeconds;
+
 }
 
 };
