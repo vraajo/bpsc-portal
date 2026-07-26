@@ -360,3 +360,27 @@ margin-top:24px;
 width:100%;
 
 }
+
+.history-subject-preview-list{
+
+    margin-top:16px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.history-subject-preview{
+
+    font-size:15px;
+
+    opacity:.9;
+
+    display:flex;
+
+    align-items:center;
+
+}
