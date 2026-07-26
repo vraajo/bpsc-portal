@@ -68,3 +68,39 @@ const PlannerStorage = {
     }
 
 };
+
+/* ==========================================
+   Cloud Sync Registration
+========================================== */
+
+if (window.CloudSync) {
+
+    CloudSync.register(
+
+        "planner",
+
+        () => {
+
+            return PlannerStorage.load();
+
+        },
+
+        (cloudData) => {
+
+            if (!cloudData) return;
+
+            PlannerStorage.save(cloudData);
+
+            PlannerEngine.init();
+
+            if (window.PlannerUI) {
+
+                PlannerUI.render();
+
+            }
+
+        }
+
+    );
+
+}
