@@ -181,24 +181,106 @@ button.addEventListener("click", () => {
 
 },
 
+    filterRecords(history) {
+
+    if (!history || !history.history) {
+
+        return [];
+
+    }
+
+    const searchText =
+        (
+            document.getElementById("historySearchInput")?.value || ""
+        )
+        .trim()
+        .toLowerCase();
+
+    const selectedDate =
+        document.getElementById("historyDateFilter")?.value || "";
+
+    return history.history.filter(record => {
+
+        /* ---------- Date Filter ---------- */
+
+        if (selectedDate) {
+
+            const recordDate =
+                new Date(record.archivedAt)
+                    .toISOString()
+                    .split("T")[0];
+
+            if (recordDate !== selectedDate) {
+
+                return false;
+
+            }
+
+        }
+
+        /* ---------- Subject / Topic Filter ---------- */
+
+        if (!searchText) {
+
+            return true;
+
+        }
+
+        return record.subjects.some(subject => {
+
+            if (
+                subject.title &&
+                subject.title.toLowerCase().includes(searchText)
+            ) {
+
+                return true;
+
+            }
+
+            return subject.topics.some(topic => {
+
+                return (
+                    topic.title &&
+                    topic.title.toLowerCase().includes(searchText)
+                );
+
+            });
+
+        });
+
+    });
+
+},
+
     renderRecords(history) {
 
     const recordsContainer = document.getElementById("historyRecords");
 
     if (!recordsContainer) return;
 
-    if (!history.history || history.history.length === 0) {
+    const records = this.filterRecords(history);
 
-        recordsContainer.innerHTML = "";
+if (records.length === 0) {
 
-        return;
+    recordsContainer.innerHTML = `
 
-    }
+        <div class="history-card">
+
+            <h3>No matching records found</h3>
+
+        </div>
+
+    `;
+
+    return;
+
+}
+
 
     let html = "";
     let currentMonth = "";
 
-    history.history.forEach(record => {
+    records.forEach(record => {
 
         const date = new Date(record.archivedAt);
 
