@@ -169,15 +169,19 @@ button.addEventListener("click", () => {
 
     searchInput.addEventListener("input", () => {
 
-        this.render();
+    const history = StudyHistoryStorage.load();
 
-    });
+    this.renderRecords(history);
 
-    dateFilter.addEventListener("change", () => {
+});
 
-        this.render();
+dateFilter.addEventListener("change", () => {
 
-    });
+    const history = StudyHistoryStorage.load();
+
+    this.renderRecords(history);
+
+});
 
 },
 
