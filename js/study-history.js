@@ -319,12 +319,19 @@ if (records.length === 0) {
 
         });
 
-        const displayTime = date.toLocaleTimeString([], {
+    const subjectsPreview = record.subjects.map(subject => {
 
-            hour: "2-digit",
-            minute: "2-digit"
+    return `
 
-        });
+        <div class="history-subject-preview">
+
+            📘 ${subject.title}
+
+        </div>
+
+    `;
+
+}).join("");
 
         html += `
 
@@ -334,17 +341,21 @@ if (records.length === 0) {
 
                     <div>
 
-                        <h3>${displayDate}</h3>
+                          <h3>${displayDate}</h3>
 
-                        <small>${displayTime}</small>
-
-                    </div>
+                   </div>
 
                     <button
                         class="history-menu-btn"
                         data-id="${record.id}">
                         ⋮
                     </button>
+
+                </div>
+
+                <div class="history-subject-preview-list">
+
+                      ${subjectsPreview}
 
                 </div>
 
