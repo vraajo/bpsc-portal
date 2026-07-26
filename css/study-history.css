@@ -388,3 +388,35 @@ width:100%;
     padding:4px 0;
 
 }
+
+.history-record-summary{
+
+    margin-top:16px;
+
+    padding-top:12px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.history-summary-label{
+
+    font-size:14px;
+
+    opacity:.8;
+
+}
+
+.history-summary-value{
+
+    font-weight:600;
+
+    font-size:15px;
+
+}
