@@ -168,6 +168,8 @@ if (
 
     HomeEngine.init();
 
+    HomeUI.init();
+
     Dashboard.init();
 
    if (typeof StudyHistory !== "undefined") {
