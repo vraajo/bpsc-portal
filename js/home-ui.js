@@ -98,7 +98,7 @@ const HomeUI = {
 
 `;
 
-    }
+    },
 
 
    bindEvents() {
