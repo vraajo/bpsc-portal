@@ -497,11 +497,47 @@ const historyStats =
 
     const stats = PlannerEngine.getStatistics();
 
+      let progressMessage = "";
+
+if (stats.overallProgress === 0) {
+
+    progressMessage = "🚀 Let's start today's study";
+
+} else if (stats.overallProgress <= 30) {
+
+    progressMessage = "💪 Good start, keep going";
+
+} else if (stats.overallProgress <= 70) {
+
+    progressMessage = "🔥 Great momentum";
+
+} else if (stats.overallProgress < 100) {
+
+    progressMessage = "⭐ Almost finished";
+
+} else {
+
+    progressMessage = "🎉 Today's target achieved!";
+
+}
+
+
+
+      
+
     container.innerHTML = `
 
 <div class="homeProgressCard">
 
+    <div class="progressHeader">
+
+    <span class="material-symbols-rounded progressIcon">
+        target
+    </span>
+
     <h3>Today's Progress</h3>
+
+</div>
 
     <div class="homeProgressBar">
 
@@ -509,6 +545,12 @@ const historyStats =
             class="homeProgressFill"
             style="width:${stats.overallProgress}%;">
         </div>
+
+       <div class="progressStatus">
+
+    ${progressMessage}
+
+</div>
 
     </div>
 
