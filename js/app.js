@@ -166,6 +166,8 @@ if (
 
     PlannerUI.init();
 
+    HomeEngine.init();
+
     Dashboard.init();
 
    if (typeof StudyHistory !== "undefined") {
