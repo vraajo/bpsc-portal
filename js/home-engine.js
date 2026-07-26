@@ -113,4 +113,32 @@ resumeTimer() {
 
 },
 
+   stopTimer() {
+
+    if (this.data.timerState === "ready") {
+
+        return;
+
+    }
+
+    if (this.data.timerState === "running") {
+
+        this.data.currentSessionSeconds = this.getCurrentSessionSeconds();
+
+    }
+
+    this.data.todayStudySeconds += this.data.currentSessionSeconds;
+
+    this.data.currentSessionSeconds = 0;
+
+    this.data.timerState = "ready";
+
+    this.data.sessionStartTime = null;
+
+    this.data.pausedAt = null;
+
+    this.save();
+
+}
+
 };
