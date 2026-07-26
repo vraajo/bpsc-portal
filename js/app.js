@@ -77,9 +77,22 @@ if (
 
 }
 
-//above is study history
 
-       //above is study history
+
+       // Planner
+
+if (
+    pageId === "plannerPage" &&
+    typeof PlannerUI !== "undefined"
+) {
+
+    PlannerEngine.init();
+
+    PlannerUI.render();
+
+}
+
+      
 
        
         pages.forEach((page) => {
