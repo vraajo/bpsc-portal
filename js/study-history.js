@@ -319,13 +319,27 @@ if (records.length === 0) {
 
         });
 
-    const subjectsPreview = record.subjects.map(subject => {
+    const subjectsPreview = record.subjects.map((subject, index) => {
+
+    const icons = ["📘", "📗", "📙", "📕", "📓"];
+
+    const icon = icons[index % icons.length];
 
     return `
 
         <div class="history-subject-preview">
 
-            📘 ${subject.title}
+            <span>
+
+                ${icon} ${subject.title}
+
+            </span>
+
+            <span>
+
+                ${subject.topics.length} Topics
+
+            </span>
 
         </div>
 
