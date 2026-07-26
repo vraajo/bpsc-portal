@@ -555,65 +555,192 @@ color:#a78bfa;
 
 }
 
-/* ======================================
-   HOME - TODAY'S PROGRESS
-====================================== */
+/*==================================================
+  HOME - TODAY'S PROGRESS (PREMIUM)
+==================================================*/
 
 .homeProgressCard{
+    position:relative;
+    overflow:hidden;
 
-    background: var(--card);
+    background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.025)
+    );
 
-    border-radius: 20px;
+    border:1px solid rgba(255,255,255,.08);
 
-    padding: 22px;
+    border-radius:24px;
 
-    box-shadow: 0 8px 25px rgba(0,0,0,.22);
+    padding:22px;
+
+    backdrop-filter:blur(14px);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.30),
+        inset 0 1px 0 rgba(255,255,255,.05);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.homeProgressCard:active{
+
+    transform:scale(.985);
+
+    box-shadow:
+        0 14px 36px rgba(0,0,0,.40),
+        inset 0 1px 0 rgba(255,255,255,.06);
 
 }
 
-.homeProgressCard h3{
+/*==============================
+Header
+==============================*/
+
+.progressHeader{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:20px;
+
+}
+
+.progressIcon{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(59,130,246,.15);
+
+    color:#60a5fa;
+
+    font-size:22px;
+
+}
+
+.progressHeader h3{
+
+    margin:0;
 
     font-size:18px;
-
-    margin-bottom:18px;
 
     font-weight:700;
 
 }
 
+/*==============================
+Progress Bar
+==============================*/
+
 .homeProgressBar{
 
-    width:100%;
-
-    height:10px;
-
-    background:rgba(255,255,255,.08);
-
-    border-radius:999px;
+    position:relative;
 
     overflow:hidden;
 
-    margin-bottom:22px;
+    height:12px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.08);
+
+    margin-bottom:24px;
 
 }
 
 .homeProgressFill{
 
-    height:100%;
+    position:relative;
 
-    width:0;
+    height:100%;
 
     border-radius:999px;
 
-    background:linear-gradient(
-        90deg,
-        #22c55e,
-        #3b82f6
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #38bdf8
+        );
 
-    transition:width .6s ease;
+    transition:width .8s ease;
 
 }
+
+/* Glass Highlight */
+
+.homeProgressFill::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-40%;
+
+    width:40%;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.45),
+            transparent
+        );
+
+    animation:progressShimmer 3.5s infinite;
+
+}
+
+/* Glow End */
+
+.homeProgressFill::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-6px;
+
+    top:50%;
+
+    width:12px;
+
+    height:12px;
+
+    transform:translateY(-50%);
+
+    border-radius:50%;
+
+    background:#7dd3fc;
+
+    box-shadow:
+        0 0 12px rgba(56,189,248,.8);
+
+}
+
+/*==============================
+Main Value
+==============================*/
 
 .homeProgressMain{
 
@@ -625,23 +752,42 @@ color:#a78bfa;
 
 .progressMainValue{
 
-    font-size:42px;
+    font-size:52px;
 
     font-weight:800;
 
     line-height:1;
 
+    background:
+        linear-gradient(
+            90deg,
+            #60a5fa,
+            #22d3ee
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
 }
 
 .progressMainLabel{
 
-    margin-top:8px;
+    margin-top:10px;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
 
     color:var(--text2);
 
-    font-size:14px;
-
 }
+
+/*==============================
+Stats
+==============================*/
 
 .homeProgressStats{
 
@@ -677,8 +823,6 @@ color:#a78bfa;
 
     color:var(--text2);
 
-    font-size:14px;
-
 }
 
 .progressRow strong{
@@ -686,5 +830,51 @@ color:#a78bfa;
     font-size:15px;
 
     font-weight:700;
+
+}
+
+/*==============================
+Status
+==============================*/
+
+.progressStatus{
+
+    margin-top:18px;
+
+    padding:10px 14px;
+
+    border-radius:999px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    background:rgba(59,130,246,.12);
+
+    color:#93c5fd;
+
+    border:1px solid rgba(59,130,246,.18);
+
+}
+
+/*==============================
+Animation
+==============================*/
+
+@keyframes progressShimmer{
+
+    from{
+
+        left:-40%;
+
+    }
+
+    to{
+
+        left:140%;
+
+    }
 
 }
