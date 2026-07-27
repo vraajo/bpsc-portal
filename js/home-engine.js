@@ -41,13 +41,17 @@ const HomeEngine = {
 
     }
 
-    this.data.timerState = "running";
+    const now = Date.now();
 
-    this.data.sessionStartTime = Date.now();
+this.data.timerState = "running";
 
-    this.startTicker();
+this.data.sessionStartTime = now;
 
-    this.save();
+this.data.currentSessionStart = now;
+
+this.startTicker();
+
+this.save();
 
 },
 
