@@ -9,9 +9,9 @@ const HomeUI = {
     init() {
 
         this.renderStudyTimer();
-        this.bindEvents();
-        this.startClock();
         this.renderButtons();
+        this.startClock();
+        
 
     },
 
@@ -68,6 +68,7 @@ const HomeUI = {
 
     const startBtn = document.getElementById("timerStartBtn");
     const pauseBtn = document.getElementById("timerPauseBtn");
+    const resumeBtn = document.getElementById("timerResumeBtn");
     const stopBtn = document.getElementById("timerStopBtn");
 
     if (startBtn) {
@@ -79,17 +80,15 @@ const HomeUI = {
 
     if (pauseBtn) {
         pauseBtn.addEventListener("click", () => {
+            HomeEngine.pauseTimer();
+            this.renderButtons();
+        });
+    }
 
-            if (HomeEngine.getData().timerState === "running") {
-                HomeEngine.pauseTimer();
-               this.renderButtons();
-            } else if (HomeEngine.getData().timerState === "paused") {
-                HomeEngine.resumeTimer();
-               this.renderButtons();
-            }
-
-           
-
+    if (resumeBtn) {
+        resumeBtn.addEventListener("click", () => {
+            HomeEngine.resumeTimer();
+            this.renderButtons();
         });
     }
 
