@@ -30,6 +30,8 @@ const HomeStorage = {
 
             pausedAt: null
 
+            studySessions: []
+
         };
 
     },
