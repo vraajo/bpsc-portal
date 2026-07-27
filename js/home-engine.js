@@ -173,6 +173,14 @@ resumeTimer() {
 
 },
 
+   getStudySessionCount() {
+
+    return this.data.studySessions
+        ? this.data.studySessions.length
+        : 0;
+
+},
+
    saveStudySession() {
 
     if (this.data.currentSessionSeconds <= 0) {
