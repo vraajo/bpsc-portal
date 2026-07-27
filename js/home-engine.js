@@ -136,11 +136,31 @@ resumeTimer() {
 
     this.data.todayStudySeconds += this.data.currentSessionSeconds;
 
+    if (this.data.currentSessionSeconds > 0) {
+
+    this.data.studySessions.push({
+
+        id: Date.now().toString(),
+
+        date: HomeStorage.getToday(),
+
+        startTime: this.data.currentSessionStart,
+
+        endTime: Date.now(),
+
+        duration: this.data.currentSessionSeconds
+
+    });
+
+}
+
     this.data.currentSessionSeconds = 0;
 
     this.data.timerState = "ready";
 
     this.data.sessionStartTime = null;
+
+    this.data.currentSessionStart = null;
 
     this.data.pausedAt = null;
 
