@@ -62,6 +62,13 @@ const HomeUI = {
     class="todayStudyCard">
 </div>
 
+<div class="todayStudySessions">
+
+    Sessions Today:
+    ${HomeEngine.getStudySessionCount()}
+
+</div>
+
 </div>
 
 `;
