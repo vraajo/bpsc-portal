@@ -311,12 +311,9 @@ section{
 
 }
 
-
 /* ===========================
    Temporary Study timer css
 =========================== */
-
-
 
 .studyTimerCard{
 
@@ -373,3 +370,35 @@ section{
     border-radius:16px;
 
 }
+
+.todayStudyCard{
+
+    margin-top:20px;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:var(--card);
+
+}
+
+.todayStudyTitle{
+
+    font-size:14px;
+
+    opacity:.7;
+
+}
+
+.todayStudyTime{
+
+    margin-top:8px;
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+
