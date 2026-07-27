@@ -11,6 +11,7 @@ const HomeUI = {
         this.renderStudyTimer();
         this.bindEvents();
         this.startClock();
+        this.renderButtons();
 
     },
 
@@ -51,48 +52,10 @@ const HomeUI = {
 
     </div>
 
-    <div class="studyTimerButtons">
-
-        <button
-            id="timerStartBtn">
-
-            <span class="material-symbols-rounded">
-
-                play_arrow
-
-            </span>
-
-            Start
-
-        </button>
-
-        <button
-            id="timerPauseBtn">
-
-            <span class="material-symbols-rounded">
-
-                pause
-
-            </span>
-
-            Pause
-
-        </button>
-
-        <button
-            id="timerStopBtn">
-
-            <span class="material-symbols-rounded">
-
-                stop
-
-            </span>
-
-            Stop
-
-        </button>
-
-    </div>
+    <div
+    class="studyTimerButtons"
+    id="studyTimerButtons">
+</div>
 
 </div>
 
@@ -110,6 +73,7 @@ const HomeUI = {
     if (startBtn) {
         startBtn.addEventListener("click", () => {
             HomeEngine.startTimer();
+            this.renderButtons();
         });
     }
 
@@ -118,9 +82,13 @@ const HomeUI = {
 
             if (HomeEngine.getData().timerState === "running") {
                 HomeEngine.pauseTimer();
+               this.renderButtons();
             } else if (HomeEngine.getData().timerState === "paused") {
                 HomeEngine.resumeTimer();
+               this.renderButtons();
             }
+
+           
 
         });
     }
@@ -128,8 +96,65 @@ const HomeUI = {
     if (stopBtn) {
         stopBtn.addEventListener("click", () => {
             HomeEngine.stopTimer();
+            this.renderButtons();
         });
     }
+
+},
+
+   renderButtons() {
+
+    const container =
+        document.getElementById("studyTimerButtons");
+
+    if (!container) return;
+
+    const state = HomeEngine.getData().timerState;
+
+    if (state === "ready") {
+
+        container.innerHTML = `
+            <button id="timerStartBtn" class="primaryBtn">
+                <span class="material-symbols-rounded">play_arrow</span>
+                Start
+            </button>
+        `;
+
+    }
+
+    else if (state === "running") {
+
+        container.innerHTML = `
+            <button id="timerPauseBtn">
+                <span class="material-symbols-rounded">pause</span>
+                Pause
+            </button>
+
+            <button id="timerStopBtn">
+                <span class="material-symbols-rounded">stop</span>
+                Stop
+            </button>
+        `;
+
+    }
+
+    else if (state === "paused") {
+
+        container.innerHTML = `
+            <button id="timerResumeBtn">
+                <span class="material-symbols-rounded">play_arrow</span>
+                Resume
+            </button>
+
+            <button id="timerStopBtn">
+                <span class="material-symbols-rounded">stop</span>
+                Stop
+            </button>
+        `;
+
+    }
+
+    this.bindEvents();
 
 },
 
@@ -160,5 +185,7 @@ updateClock() {
     clock.textContent = `${hrs}:${mins}:${secs}`;
 
 }
+
+ 
 
 };
