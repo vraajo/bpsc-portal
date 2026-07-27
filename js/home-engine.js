@@ -187,6 +187,30 @@ resumeTimer() {
 
     return this.data.todayStudySeconds;
 
+},
+
+   saveStudySession() {
+
+    if (this.data.currentSessionSeconds <= 0) {
+
+        return;
+
+    }
+
+    this.data.studySessions.push({
+
+        id: Date.now().toString(),
+
+        date: HomeStorage.getToday(),
+
+        startTime: this.data.currentSessionStart,
+
+        endTime: Date.now(),
+
+        duration: this.data.currentSessionSeconds
+
+    });
+
 }
 
 };
