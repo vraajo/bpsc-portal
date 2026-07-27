@@ -30,7 +30,7 @@ const HomeStorage = {
 
             currentSessionStart: null,
 
-            pausedAt: null
+            pausedAt: null,
 
             studySessions: []
 
