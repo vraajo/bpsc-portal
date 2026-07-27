@@ -7,12 +7,14 @@ importScripts("https://www.gstatic.com/firebasejs/10.13.2/firebase-messaging-com
 */
 
 firebase.initializeApp({
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyCJ5o2ThN05UrTE3Uw-BM6ea03fH7OnCaE",
+  authDomain: "bpsc-portal-a9b2f.firebaseapp.com",
+  projectId: "bpsc-portal-a9b2f",
+  storageBucket: "bpsc-portal-a9b2f.firebasestorage.app",
+  messagingSenderId: "480197369468",
+  appId: "1:480197369468:web:f91a7200ccbed5ec2a33f9",
+  measurementId: "G-217VW2E9VZ"
+ 
 });
 
 const messaging = firebase.messaging();
