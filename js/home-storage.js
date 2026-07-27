@@ -28,6 +28,8 @@ const HomeStorage = {
 
             sessionStartTime: null,
 
+            currentSessionStart: null,
+
             pausedAt: null
 
             studySessions: []
