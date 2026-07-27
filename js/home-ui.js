@@ -57,6 +57,11 @@ const HomeUI = {
     id="studyTimerButtons">
 </div>
 
+    <div
+    id="todayStudyCard"
+    class="todayStudyCard">
+</div>
+
 </div>
 
 `;
@@ -96,6 +101,7 @@ const HomeUI = {
         stopBtn.addEventListener("click", () => {
             HomeEngine.stopTimer();
             this.renderButtons();
+            this.renderTodayStudy();
         });
     }
 
@@ -160,10 +166,12 @@ const HomeUI = {
    startClock() {
 
     this.updateClock();
+    this.renderTodayStudy();
 
     setInterval(() => {
 
         this.updateClock();
+        this.renderTodayStudy();
 
     }, 1000);
 
@@ -182,6 +190,40 @@ updateClock() {
     const secs = String(seconds % 60).padStart(2, "0");
 
     clock.textContent = `${hrs}:${mins}:${secs}`;
+
+},
+
+   renderTodayStudy() {
+
+    const card =
+        document.getElementById("todayStudyCard");
+
+    if (!card) return;
+
+    const seconds =
+        HomeEngine.getTodayStudySeconds();
+
+    const hrs =
+        Math.floor(seconds / 3600);
+
+    const mins =
+        Math.floor((seconds % 3600) / 60);
+
+    card.innerHTML = `
+
+        <div class="todayStudyTitle">
+
+            Today's Study
+
+        </div>
+
+        <div class="todayStudyTime">
+
+            ${hrs}h ${mins}m
+
+        </div>
+
+    `;
 
 }
 
