@@ -115,6 +115,9 @@ resumeTimer() {
 
    stopTimer() {
 
+      clearInterval(this.interval);
+      this.interval = null;
+
     if (this.data.timerState === "ready") {
 
         return;
@@ -143,14 +146,13 @@ resumeTimer() {
 
    getCurrentSessionSeconds() {
 
-    if (this.data.timerState === "running") {
-
+    if (
+        this.data.timerState === "running" &&
+        this.data.sessionStartTime !== null
+    ) {
         return Math.floor(
-
             (Date.now() - this.data.sessionStartTime) / 1000
-
         );
-
     }
 
     return this.data.currentSessionSeconds;
