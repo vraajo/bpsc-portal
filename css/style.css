@@ -401,4 +401,75 @@ section{
 
 }
 
+.quoteCard{
+
+    position:relative;
+
+    overflow:hidden;
+
+    margin-top:20px;
+
+    padding:28px 24px;
+
+    border-radius:24px;
+
+    background:rgba(30,41,59,.85);
+
+    backdrop-filter:blur(16px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.22);
+
+}
+
+.quoteIcon{
+
+    position:absolute;
+
+    top:12px;
+
+    left:16px;
+
+    font-size:70px;
+
+    opacity:.08;
+
+    color:var(--primary);
+
+}
+
+.quoteText{
+
+    position:relative;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    text-align:center;
+
+    font-style:italic;
+
+    font-weight:500;
+
+    z-index:2;
+
+}
+
+.quoteAuthor{
+
+    margin-top:20px;
+
+    text-align:right;
+
+    color:var(--text2);
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
 
