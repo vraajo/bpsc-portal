@@ -234,6 +234,44 @@ const secs = seconds % 60;
 
     `;
 
+},
+
+   renderQuote() {
+
+    const container =
+        document.getElementById("homeQuote");
+
+    if (!container) return;
+
+    const quote =
+        QuoteEngine.getTodayQuote();
+
+    container.innerHTML = `
+
+<div class="quoteCard">
+
+    <span class="material-symbols-rounded quoteIcon">
+
+        format_quote
+
+    </span>
+
+    <div class="quoteText">
+
+        "${quote.text}"
+
+    </div>
+
+    <div class="quoteAuthor">
+
+        — ${quote.author}
+
+    </div>
+
+</div>
+
+`;
+
 }
 
  
