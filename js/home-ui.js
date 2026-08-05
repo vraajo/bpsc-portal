@@ -11,6 +11,7 @@ const HomeUI = {
         this.renderStudyTimer();
         this.renderButtons();
         this.startClock();
+        this.renderQuote();
         
 
     },
